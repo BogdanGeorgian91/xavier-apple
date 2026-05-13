@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="InspectedRequest" representedClassName="InspectedRequest" syncable="YES" codeGenerationType="none">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="appName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBundleID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="host" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpMethod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestHeaders" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestBody" optional="YES" attributeType="Binary" syncable="YES" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="statusCode" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="responseHeaders" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="responseBody" optional="YES" attributeType="Binary" syncable="YES" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tlsVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="port" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pinned" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="blocked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="blockedReason" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="responseModified" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="requestModified" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="originalRequestHeaders" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalRequestBody" optional="YES" attributeType="Binary" syncable="YES" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="originalResponseHeaders" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalResponseBody" optional="YES" attributeType="Binary" syncable="YES" allowsExternalBinaryDataStorage="YES"/>
+        <fetchIndex name="byInspectedRequestTimestampIndex">
+            <fetchIndexElement property="timestamp" type="Binary" order="descending"/>
+        </fetchIndex>
+        <fetchIndex name="byInspectedRequestHostIndex">
+            <fetchIndexElement property="host" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byInspectedRequestAppNameIndex">
+            <fetchIndexElement property="appName" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byInspectedRequestBlockedIndex">
+            <fetchIndexElement property="blocked" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <elements>
+        <element name="InspectedRequest" positionX="-63" positionY="-18" width="128" height="390"/>
+    </elements>
+</model>

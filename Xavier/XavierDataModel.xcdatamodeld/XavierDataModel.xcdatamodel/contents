@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DataRule" representedClassName="DataRule" syncable="YES" codeGenerationType="class">
+        <attribute name="isAllowed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <fetchIndex name="byValueIndex">
+            <fetchIndexElement property="value" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byTypeIndex">
+            <fetchIndexElement property="type" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="DataWildCard" representedClassName="DataWildCard" syncable="YES" codeGenerationType="class">
+        <attribute name="app" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isAllowed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <fetchIndex name="byAppIndex">
+            <fetchIndexElement property="app" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="BrowserEvent" representedClassName="BrowserEvent" syncable="YES" codeGenerationType="none">
+        <attribute name="app" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="host" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpMethod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestHeaders" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestBody" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusCode" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="responseHeaders" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="responseBody" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <fetchIndex name="byBrowserEventHostIndex">
+            <fetchIndexElement property="host" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byBrowserEventTimestampIndex">
+            <fetchIndexElement property="timestamp" type="Binary" order="descending"/>
+        </fetchIndex>
+        <fetchIndex name="byBrowserEventAppIndex">
+            <fetchIndexElement property="app" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="NetworkEvent" representedClassName="NetworkEvent" syncable="YES" codeGenerationType="none">
+        <attribute name="app" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bytesInbound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="bytesOutbound" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="direction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="host" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ipAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localIP" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localPort" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="port" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="protocol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <fetchIndex name="byIdentifierIndex">
+            <fetchIndexElement property="identifier" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byAppIndex">
+            <fetchIndexElement property="app" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byHostIndex">
+            <fetchIndexElement property="host" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byTimestampIndex">
+            <fetchIndexElement property="timestamp" type="Binary" order="descending"/>
+        </fetchIndex>
+    </entity>
+    <elements>
+        <element name="DataRule" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="DataWildCard" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="BrowserEvent" positionX="-54" positionY="144" width="128" height="253"/>
+        <element name="NetworkEvent" positionX="117" positionY="18" width="128" height="195"/>
+    </elements>
+</model>

@@ -1,0 +1,14 @@
+*.xcuserdatad/
+*.xcodeproj/project.xcworkspace/xcshareddata/
+*.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+BUILD
+COMMIT
+
+.opencode/*
+xcuserdata/
+.DS_Store
+thoughts/
+Config/Local.xcconfig
+Config/NETestAppMapping.local.plist
+GEMINI.md
+AGENTS.md
