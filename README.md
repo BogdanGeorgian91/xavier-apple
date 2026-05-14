@@ -125,3 +125,7 @@ Not in its current form. Apple restricts network content filters for consumer Ap
 No supervised device needed for personal development use. The filter and proxy extensions work as-is when sideloaded through Xcode.
 
 **Note:** With a free Apple Developer account, the provisioning profile expires every 7 days and must be rebuilt. A paid Apple Developer account ($99/year) extends this to a full year.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
