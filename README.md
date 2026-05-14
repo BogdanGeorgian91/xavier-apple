@@ -25,7 +25,9 @@ Most apps quietly connect to servers you'd never approve — trackers, ad networ
 
 **Developer debugging.** Shipping an app? Monitor its production network behavior live, test how it handles offline scenarios, and trace connection failures.
 
-**Privacy first.** Your traffic data stays on your device. Always. Nothing is collected, transmitted, or sold.
+**Privacy first & Data Retention.** Your traffic data stays on your device. Always. Nothing is collected, transmitted, or sold. To keep local storage efficient, Xavier enforces a strict data retention policy:
+- **Last hour dashboard:** The main dashboard provides immediate, fast visibility into network activity from the last hour.
+- **7-day retention rule:** All stored data—including network events, browser traffic, and HTTPS proxy inspections—is retained for a rolling 7-day window. Any data older than 7 days is automatically deleted to prevent the database from growing infinitely, while all recent data is kept intact.
 
 ## How it works
 
