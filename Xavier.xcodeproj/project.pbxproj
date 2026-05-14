@@ -33,6 +33,10 @@
 		5EB60A6596CB1BB5A4BF8973 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA9C1745FB0815C5EC9F88 /* SHA256.swift */; };
 		5F65A4FA967624D252792DE6 /* ScriptBlocklistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54ED8096C227959AE14A50 /* ScriptBlocklistManager.swift */; };
 		5FE83626F8D3D5323FEA408E /* FilterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA4741B05C7585EA8036ED /* FilterDataProvider.swift */; };
+		600000000000000000000001 /* FilterXPCContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600000000000000000000005 /* FilterXPCContracts.swift */; };
+		600000000000000000000002 /* MacOSRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600000000000000000000006 /* MacOSRuleModel.swift */; };
+		600000000000000000000003 /* FilterXPCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600000000000000000000007 /* FilterXPCClient.swift */; };
+		600000000000000000000004 /* XPCListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600000000000000000000008 /* XPCListener.swift */; };
 		620B3DF7C31A2B826EA5FB74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDAA073E2D357D603E543D0 /* Foundation.framework */; };
 		6B90C47D66C0F14A1FBCC866 /* FlowMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C5D0C0B955C80133945E0 /* FlowMetadataProvider.swift */; };
 		6DB4713CEC6FCB5420475F88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBFC748DFDCC358414271A /* Constants.swift */; };
@@ -346,6 +350,10 @@
 		DDDAA073E2D357D603E543D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE54ED8096C227959AE14A50 /* ScriptBlocklistManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScriptBlocklistManager.swift; path = ../Xavier/Core/ScriptBlocklistManager.swift; sourceTree = "<group>"; };
 		DE623122E0D8EDB11E2654DE /* com.boogdan.xaviermac.filter.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = com.boogdan.xaviermac.filter.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		600000000000000000000005 /* FilterXPCContracts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterXPCContracts.swift; sourceTree = "<group>"; };
+		600000000000000000000006 /* MacOSRuleModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MacOSRuleModel.swift; sourceTree = "<group>"; };
+		600000000000000000000007 /* FilterXPCClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterXPCClient.swift; sourceTree = "<group>"; };
+		600000000000000000000008 /* XPCListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XPCListener.swift; sourceTree = "<group>"; };
 		E2CE617ADFFD38D1D4F2C391 /* Security.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F0A00001268F000100000001 /* NetworkEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventManager.swift; sourceTree = "<group>"; };
 		F0A00005268F000100000001 /* NetworkEvent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -539,6 +547,7 @@
 		11E14AD968A3190CEF485715 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				600000000000000000000007 /* FilterXPCClient.swift */,
 				B3ECCA81847722D704949394 /* MacOSBundleResolver.swift */,
 			);
 			path = Services;
@@ -580,6 +589,7 @@
 			children = (
 				06579812167145B5E5E3C0BB /* main.swift */,
 				49EA4741B05C7585EA8036ED /* FilterDataProvider.swift */,
+				600000000000000000000008 /* XPCListener.swift */,
 			);
 			path = XavierMacFilterExtension;
 			sourceTree = "<group>";
@@ -634,6 +644,8 @@
 				C438B80417CAF497C458E7FF /* ModificationRule.swift */,
 				DE54ED8096C227959AE14A50 /* ScriptBlocklistManager.swift */,
 				9BEBFC748DFDCC358414271A /* Constants.swift */,
+				600000000000000000000005 /* FilterXPCContracts.swift */,
+				600000000000000000000006 /* MacOSRuleModel.swift */,
 			);
 			path = XavierShared;
 			sourceTree = "<group>";
@@ -1301,6 +1313,7 @@
 			files = (
 				8A9025693C2872F8319554DC /* main.swift in Sources */,
 				5FE83626F8D3D5323FEA408E /* FilterDataProvider.swift in Sources */,
+				600000000000000000000004 /* XPCListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1322,6 +1335,7 @@
 				737E76D9477B0688F23147E8 /* SidebarContentView.swift in Sources */,
 				767CE895555C25ED210C9F23 /* MenuBarView.swift in Sources */,
 				8DAF375188D874D244A4BF8A /* MacOSBundleResolver.swift in Sources */,
+				600000000000000000000003 /* FilterXPCClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1361,6 +1375,8 @@
 				6B90C47D66C0F14A1FBCC866 /* FlowMetadataProvider.swift in Sources */,
 				F6158AA531F5DA532129DB63 /* FrameworkBundleResolver.swift in Sources */,
 				89403BE4B07FE988C7AF3057 /* IOSBundleResolver.swift in Sources */,
+				600000000000000000000001 /* FilterXPCContracts.swift in Sources */,
+				600000000000000000000002 /* MacOSRuleModel.swift in Sources */,
 				0FA48FE8E97C366CF3A4F790 /* InspectionModel.xcdatamodeld in Sources */,
 				0B5C70D7DBEB7546AD98CC95 /* XavierDataModel.xcdatamodeld in Sources */,
 				B99DD0C7611CB05637837B8E /* Flow.swift in Sources */,

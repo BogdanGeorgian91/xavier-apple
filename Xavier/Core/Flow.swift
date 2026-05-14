@@ -37,8 +37,10 @@ extension NEFilterFlow {
         }
 
         switch self {
+        #if os(iOS)
         case let browserFlow as NEFilterBrowserFlow:
             return browserFlow.request?.url?.host ?? browserFlow.request?.url?.absoluteString
+        #endif
         case let socketFlow as NEFilterSocketFlow:
             if #available(iOS 14.0, *) {
                 if let host = socketFlow.remoteHostname {
@@ -80,9 +82,11 @@ extension NEFilterFlow {
 
     public func getTransportProtocol() -> String? {
         guard let socketFlow = self as? NEFilterSocketFlow else {
+            #if os(iOS)
             if self is NEFilterBrowserFlow {
                 return "browser"
             }
+            #endif
 
             return nil
         }
@@ -119,10 +123,14 @@ extension NEFilterFlow {
     public func networkEventPayload(timestamp: Date = Date(),
                                     bytesInbound: Int64 = 0,
                                     bytesOutbound: Int64 = 0) -> NetworkEventPayload? {
+        #if os(iOS)
         guard let rawAppId = sourceAppIdentifier else {
             return nil
         }
         let app = rawAppId.cleanAppIdentifier()
+        #else
+        let app = macOSAppIdentifierFallback()
+        #endif
 
         let endpoint = getEndpointIPAndPort()
         let localEndpoint = getLocalEndpointIPAndPort()
@@ -143,6 +151,7 @@ extension NEFilterFlow {
     }
 
     public func browserFlowPayload() -> BrowserFlowPayload? {
+        #if os(iOS)
         guard let rawAppId = sourceAppIdentifier else {
             return nil
         }
@@ -188,7 +197,23 @@ extension NEFilterFlow {
             parentURL: nil,
             contentType: nil
         )
+        #else
+        return nil
+        #endif
     }
+
+    #if os(macOS)
+    private func macOSAppIdentifierFallback() -> String {
+        guard let socketFlow = self as? NEFilterSocketFlow else {
+            return "unknown"
+        }
+
+        guard let tokenData = socketFlow.sourceAppAuditToken, !tokenData.isEmpty else {
+            return "unknown"
+        }
+        return "audit-token-\(String(tokenData.SHA256.hex.prefix(12)))"
+    }
+    #endif
 
     private func isKnownBrowserApp(_ appIdentifier: String) -> Bool {
         let knownBrowsers = [
