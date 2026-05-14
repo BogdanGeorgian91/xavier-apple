@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class InspectorSiteDetailViewController: UITableViewController {
     private let site: String

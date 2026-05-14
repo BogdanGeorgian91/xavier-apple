@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import XavierShared
 
 /// A Mutex is a mutual exclusion lock.
 public class Mutex {
@@ -48,4 +49,3 @@ public class Mutex {
         unlock()
     }
 }
-

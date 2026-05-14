@@ -2,7 +2,7 @@ import Foundation
 import Network
 import NetworkExtension
 
-final class FlowCopyManager {
+public final class FlowCopyManager {
     private let flowID: UUID
     private let tcpFlow: NEAppProxyTCPFlow?
     private let udpFlow: NEAppProxyUDPFlow?
@@ -17,21 +17,21 @@ final class FlowCopyManager {
     private var cancelled = false
     private var finished = false
 
-    init(flowID: UUID, tcpFlow: NEAppProxyTCPFlow) {
+    public init(flowID: UUID, tcpFlow: NEAppProxyTCPFlow) {
         self.flowID = flowID
         self.tcpFlow = tcpFlow
         self.udpFlow = nil
         self.udpRemoteEndpoints = nil
     }
 
-    init(flowID: UUID, udpFlow: NEAppProxyUDPFlow) {
+    public init(flowID: UUID, udpFlow: NEAppProxyUDPFlow) {
         self.flowID = flowID
         self.tcpFlow = nil
         self.udpFlow = udpFlow
         self.udpRemoteEndpoints = nil
     }
 
-    func startPassthroughTCP(onComplete: @escaping () -> Void) {
+    public func startPassthroughTCP(onComplete: @escaping () -> Void) {
         guard let tcpFlow = tcpFlow else {
             onComplete()
             return
@@ -88,7 +88,7 @@ final class FlowCopyManager {
         }
     }
 
-    func startPassthroughUDP(onComplete: @escaping () -> Void) {
+    public func startPassthroughUDP(onComplete: @escaping () -> Void) {
         guard let udpFlow = udpFlow else {
             onComplete()
             return
@@ -121,7 +121,7 @@ final class FlowCopyManager {
         }
     }
 
-    func cancel() {
+    public func cancel() {
         cancelled = true
         outboundConnection?.cancel()
         tcpFlow?.closeReadWithError(nil)

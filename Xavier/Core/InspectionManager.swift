@@ -1,8 +1,8 @@
 import CoreData
 import Foundation
 
-final class InspectionManager {
-    static let shared: InspectionManager = {
+public final class InspectionManager {
+    public static let shared: InspectionManager = {
         do {
             return try InspectionManager()
         } catch {
@@ -13,11 +13,19 @@ final class InspectionManager {
     private let managedObjectContext: NSManagedObjectContext
     private static let maxBodyBytes = 65536
 
-    init() throws {
+    public convenience init() throws {
+        #if os(iOS)
+        try self.init(resolver: IOSBundleResolver())
+        #else
+        try self.init(resolver: FrameworkBundleResolver())
+        #endif
+    }
+
+    public init(resolver: BundleResolver, storeName: String = "inspection_db.sqlite") throws {
         guard let directoryURL = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupIdentifier)?
+            .containerURL(forSecurityApplicationGroupIdentifier: resolver.appGroupIdentifier)?
             .appendingPathComponent("data"),
-            let modelURL = Bundle.main.url(forResource: "InspectionModel", withExtension: "momd"),
+            let modelURL = resolver.modelBundle.url(forResource: "InspectionModel", withExtension: "momd"),
             let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
             throw NSError(domain: "InspectionManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to initialize Core Data stack"])
         }
@@ -28,7 +36,7 @@ final class InspectionManager {
 
         let options = [NSMigratePersistentStoresAutomaticallyOption: true,
                        NSInferMappingModelAutomaticallyOption: true]
-        let dbURL = directoryURL.appendingPathComponent("inspection_db.sqlite")
+        let dbURL = directoryURL.appendingPathComponent(storeName)
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         let store = try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: options)
         store.didAdd(to: coordinator)
@@ -38,7 +46,7 @@ final class InspectionManager {
     }
 
     @discardableResult
-    func logRequest(_ payload: InspectedRequestPayload) throws -> InspectedRequestSnapshot {
+    public func logRequest(_ payload: InspectedRequestPayload) throws -> InspectedRequestSnapshot {
         var snapshot: InspectedRequestSnapshot?
 
         try performAndWait {
@@ -83,7 +91,7 @@ final class InspectionManager {
         return method != "FLOW"
     }
 
-    func fetchRequests(site: String? = nil, host: String? = nil, appBundleID: String? = nil, limit: Int? = nil) throws -> [InspectedRequestSnapshot] {
+    public func fetchRequests(site: String? = nil, host: String? = nil, appBundleID: String? = nil, limit: Int? = nil) throws -> [InspectedRequestSnapshot] {
         let request: NSFetchRequest<InspectedRequest> = InspectedRequest.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(InspectedRequest.timestamp), ascending: false)]
 
@@ -117,12 +125,12 @@ final class InspectionManager {
         return filtered
     }
 
-    func fetchHostSummaries(limit: Int = 100) throws -> [InspectorHostSummary] {
+    public func fetchHostSummaries(limit: Int = 100) throws -> [InspectorHostSummary] {
         let requests = try fetchRequests(limit: limit * 20)
         return summarizeHosts(from: requests, limit: limit)
     }
 
-    func fetchSiteSummaries(limit: Int = 100) throws -> [InspectorSiteSummary] {
+    public func fetchSiteSummaries(limit: Int = 100) throws -> [InspectorSiteSummary] {
         let requests = try fetchRequests(limit: limit * 40)
         return Dictionary(grouping: requests, by: { siteContext(for: $0) })
             .map { site, siteRequests in
@@ -141,12 +149,12 @@ final class InspectionManager {
             .map { $0 }
     }
 
-    func fetchHostSummaries(site: String, limit: Int = 100) throws -> [InspectorHostSummary] {
+    public func fetchHostSummaries(site: String, limit: Int = 100) throws -> [InspectorHostSummary] {
         let requests = try fetchRequests(site: site, limit: limit * 20)
         return summarizeHosts(from: requests, limit: limit)
     }
 
-    func fetchAppSummaries(site: String, limit: Int = 100) throws -> [InspectorAppSummary] {
+    public func fetchAppSummaries(site: String, limit: Int = 100) throws -> [InspectorAppSummary] {
         let requests = try fetchRequests(site: site, limit: limit * 40)
         return Dictionary(grouping: requests, by: { self.appIdentifier(for: $0) })
             .map { appBundleID, appRequests in
@@ -199,7 +207,7 @@ final class InspectionManager {
         return summaries.values.sorted { $0.lastTimestamp > $1.lastTimestamp }.prefix(limit).map { $0 }
     }
 
-    func pruneOldData(days: Int) throws {
+    public func pruneOldData(days: Int) throws {
         let cutoff = Date().addingTimeInterval(TimeInterval(-days * 24 * 60 * 60))
         let request: NSFetchRequest<InspectedRequest> = InspectedRequest.fetchRequest()
         request.predicate = NSPredicate(format: "%K < %@", #keyPath(InspectedRequest.timestamp), cutoff as NSDate)
@@ -287,7 +295,7 @@ final class InspectionManager {
 
     private func serializeHeaders(_ headers: [String: String]?) -> String? {
         guard let headers = headers, !headers.isEmpty else { return nil }
-        return headers.sorted { $0.key < $1.key }.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
+        return headers.sorted { $0.key < $1.key }.map { "\($0.key): \($0.value)" }.joined(separator: "\r\n")
     }
 
     private func truncate(_ data: Data?) -> Data? {

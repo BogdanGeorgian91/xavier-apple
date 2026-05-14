@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import XavierShared
 
 final class MainTabBarController: UITabBarController {
     private var didPresentOnboarding = false

@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 protocol RuleDetailDelegate: AnyObject {
     func ruleDidUpdate()

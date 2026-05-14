@@ -1,4 +1,5 @@
 import Foundation
+import XavierShared
 
 final class CertificateExportHelper {
     static func exportAsDER() throws -> Data {

@@ -6,6 +6,7 @@
 
 import Foundation
 import UIKit
+import XavierShared
 
 class AboutController:UIViewController {
     override func viewDidLoad() {

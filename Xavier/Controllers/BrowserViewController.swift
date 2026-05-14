@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class BrowserViewController: UITableViewController {
     private let refresh = UIRefreshControl()

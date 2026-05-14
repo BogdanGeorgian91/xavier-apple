@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class ModificationRulesViewController: UITableViewController {
     private var rules = [ModificationRule]()

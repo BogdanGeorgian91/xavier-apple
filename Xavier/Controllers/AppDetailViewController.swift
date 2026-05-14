@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import XavierShared
 
 final class AppDetailViewController: UITableViewController {
     private enum Section: Int {

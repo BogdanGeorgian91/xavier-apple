@@ -6,34 +6,40 @@
 
 import Foundation
 
-struct Rule {
-    let ruleType:RuleType
-    let isAllowed:Bool
-    let date:Date
+public struct Rule {
+    public let ruleType:RuleType
+    public let isAllowed:Bool
+    public let date:Date
+
+    public init(ruleType: RuleType, isAllowed: Bool, date: Date) {
+        self.ruleType = ruleType
+        self.isAllowed = isAllowed
+        self.date = date
+    }
 }
 
 extension Rule {
-    init(ruleType:RuleType, isAllowed:Bool) {
+    public init(ruleType:RuleType, isAllowed:Bool) {
         self.init(ruleType: ruleType, isAllowed: isAllowed, date: Date())
     }
 }
 
-enum RuleType {
+public enum RuleType {
     case host(String)
     case app(AppName)
     case hostFromApp(host:String, app:AppName)
 }
 
 
-typealias AppName = String
+public typealias AppName = String
 extension AppName {    
-    var commonName:String {
+    public var commonName:String {
         return AppMetadataFetcher.shared.appName(for: self)
     }
 }
 
-class AppMetadataFetcher {
-    static let shared = AppMetadataFetcher()
+public class AppMetadataFetcher {
+    public static let shared = AppMetadataFetcher()
     
     private let userDefaults = UserDefaults(suiteName: Constants.appGroupIdentifier) ?? UserDefaults.standard
     private let cacheKey = "Xavier.AppMetadataCache"
@@ -78,13 +84,13 @@ class AppMetadataFetcher {
     private var inMemoryCache: [String: String] = [:]
     private var fetchingBundleIds: Set<String> = []
     
-    init() {
+    public init() {
         if let savedCache = userDefaults.dictionary(forKey: cacheKey) as? [String: String] {
             inMemoryCache = savedCache
         }
     }
     
-    func appName(for bundleId: String) -> String {
+    public func appName(for bundleId: String) -> String {
         // 1. Check hardcoded Apple apps
         if let name = hardcodedApps[bundleId] {
             return name
@@ -158,8 +164,12 @@ class AppMetadataFetcher {
     }
 }
 
-struct Wildcard {
-    let app:AppName
-    let isAllowed:Bool
-}
+public struct Wildcard {
+    public let app:AppName
+    public let isAllowed:Bool
 
+    public init(app: AppName, isAllowed: Bool) {
+        self.app = app
+        self.isAllowed = isAllowed
+    }
+}

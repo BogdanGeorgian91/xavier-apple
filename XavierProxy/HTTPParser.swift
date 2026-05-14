@@ -1,28 +1,47 @@
 import Foundation
 
-struct HTTPRequestMetadata {
-    let method: String
-    let url: String
-    let httpVersion: String
-    let headers: [String: String]
-    let capturedBody: Data?
+public struct HTTPRequestMetadata {
+    public let method: String
+    public let url: String
+    public let httpVersion: String
+    public let headers: [String: String]
+    public let capturedBody: Data?
+
+    public init(method: String, url: String, httpVersion: String, headers: [String: String], capturedBody: Data?) {
+        self.method = method
+        self.url = url
+        self.httpVersion = httpVersion
+        self.headers = headers
+        self.capturedBody = capturedBody
+    }
 }
 
-struct HTTPResponseMetadata {
-    let statusCode: Int
-    let reasonPhrase: String
-    let httpVersion: String
-    let headers: [String: String]
-    let capturedBody: Data?
-    let contentType: String?
-    let contentLength: Int64?
-    let isChunked: Bool
+public struct HTTPResponseMetadata {
+    public let statusCode: Int
+    public let reasonPhrase: String
+    public let httpVersion: String
+    public let headers: [String: String]
+    public let capturedBody: Data?
+    public let contentType: String?
+    public let contentLength: Int64?
+    public let isChunked: Bool
+
+    public init(statusCode: Int, reasonPhrase: String, httpVersion: String, headers: [String: String], capturedBody: Data?, contentType: String?, contentLength: Int64?, isChunked: Bool) {
+        self.statusCode = statusCode
+        self.reasonPhrase = reasonPhrase
+        self.httpVersion = httpVersion
+        self.headers = headers
+        self.capturedBody = capturedBody
+        self.contentType = contentType
+        self.contentLength = contentLength
+        self.isChunked = isChunked
+    }
 }
 
-final class HTTPParser {
-    static let maxBodyCaptureSize = 65536
+public final class HTTPParser {
+    public static let maxBodyCaptureSize = 65536
 
-    static func parseRequestHeaders(from data: Data) -> (metadata: HTTPRequestMetadata, headerEndIndex: Int)? {
+    public static func parseRequestHeaders(from data: Data) -> (metadata: HTTPRequestMetadata, headerEndIndex: Int)? {
         guard let headerEnd = findHeaderEnd(in: data) else { return nil }
 
         let headerData = data[..<headerEnd]
@@ -61,7 +80,7 @@ final class HTTPParser {
         ), headerEndIndex: headerEnd)
     }
 
-    static func parseResponseHeaders(from data: Data) -> (metadata: HTTPResponseMetadata, headerEndIndex: Int)? {
+    public static func parseResponseHeaders(from data: Data) -> (metadata: HTTPResponseMetadata, headerEndIndex: Int)? {
         guard let headerEnd = findHeaderEnd(in: data) else { return nil }
 
         let headerData = data[..<headerEnd]
@@ -106,7 +125,7 @@ final class HTTPParser {
         ), headerEndIndex: headerEnd)
     }
 
-    static func isScriptRequest(_ request: HTTPRequestMetadata) -> Bool {
+    public static func isScriptRequest(_ request: HTTPRequestMetadata) -> Bool {
         if let dest = request.headers["Sec-Fetch-Dest"]?.lowercased(), dest == "script" {
             return true
         }
@@ -117,29 +136,29 @@ final class HTTPParser {
         return path.hasSuffix(".js") || path.hasSuffix(".mjs")
     }
 
-    static func isHTMLResponse(_ response: HTTPResponseMetadata) -> Bool {
+    public static func isHTMLResponse(_ response: HTTPResponseMetadata) -> Bool {
         guard let contentType = response.contentType?.lowercased() else { return false }
         return contentType.contains("text/html")
     }
 
-    static func isUpgradeRequest(_ request: HTTPRequestMetadata) -> Bool {
+    public static func isUpgradeRequest(_ request: HTTPRequestMetadata) -> Bool {
         return request.headers["Upgrade"] != nil || request.headers["upgrade"] != nil
     }
 
-    static func truncate(_ data: Data, maxLength: Int = maxBodyCaptureSize) -> Data {
+    public static func truncate(_ data: Data, maxLength: Int = maxBodyCaptureSize) -> Data {
         if data.count <= maxLength { return data }
         return data.prefix(maxLength)
     }
 
-    static func serializeHeaders(_ headers: [String: String]) -> String {
-        return headers.sorted { $0.key < $1.key }.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
+    public static func serializeHeaders(_ headers: [String: String]) -> String {
+        return headers.sorted { $0.key < $1.key }.map { "\($0.key): \($0.value)" }.joined(separator: "\r\n")
     }
 
-    static func hasExpect100Continue(_ request: HTTPRequestMetadata) -> Bool {
+    public static func hasExpect100Continue(_ request: HTTPRequestMetadata) -> Bool {
         return request.headers["Expect"]?.lowercased() == "100-continue"
     }
 
-    static func buildHTTPRequest(method: String, url: String, httpVersion: String, headers: [String: String], body: Data?) -> Data {
+    public static func buildHTTPRequest(method: String, url: String, httpVersion: String, headers: [String: String], body: Data?) -> Data {
         var request = "\(method) \(url) \(httpVersion)\r\n"
         for (key, value) in headers.sorted(by: { $0.key < $1.key }) {
             request += "\(key): \(value)\r\n"
@@ -152,7 +171,7 @@ final class HTTPParser {
         return result
     }
 
-    static func httpResponse100Continue() -> Data {
+    public static func httpResponse100Continue() -> Data {
         return "HTTP/1.1 100 Continue\r\n\r\n".data(using: .utf8)!
     }
 

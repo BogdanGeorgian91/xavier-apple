@@ -2,8 +2,8 @@ import CoreData
 import Foundation
 import NetworkExtension
 
-final class BrowserEventManager {
-    static let shared: BrowserEventManager = {
+public final class BrowserEventManager {
+    public static let shared: BrowserEventManager = {
         do {
             return try BrowserEventManager()
         } catch {
@@ -13,11 +13,19 @@ final class BrowserEventManager {
 
     private let managedObjectContext: NSManagedObjectContext
 
-    init() throws {
+    public convenience init() throws {
+        #if os(iOS)
+        try self.init(resolver: IOSBundleResolver())
+        #else
+        try self.init(resolver: FrameworkBundleResolver())
+        #endif
+    }
+
+    public init(resolver: BundleResolver, storeName: String = "db.sqlite") throws {
         guard let directoryURL = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupIdentifier)?
+            .containerURL(forSecurityApplicationGroupIdentifier: resolver.appGroupIdentifier)?
             .appendingPathComponent("data"),
-              let modelURL = Bundle.main.url(forResource: "XavierDataModel", withExtension: "momd"),
+              let modelURL = resolver.modelBundle.url(forResource: "XavierDataModel", withExtension: "momd"),
               let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
             throw NSError(domain: "BrowserEventManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to initialize Core Data stack"])
         }
@@ -29,7 +37,7 @@ final class BrowserEventManager {
         let options = [NSMigratePersistentStoresAutomaticallyOption: true,
                        NSInferMappingModelAutomaticallyOption: true]
 
-        let dbURL = directoryURL.appendingPathComponent("db.sqlite")
+        let dbURL = directoryURL.appendingPathComponent(storeName)
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         let store = try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: options)
         store.didAdd(to: coordinator)
@@ -39,7 +47,7 @@ final class BrowserEventManager {
     }
 
     @discardableResult
-    func logEvent(_ payload: BrowserFlowPayload) throws -> BrowserEventSnapshot? {
+    public func logEvent(_ payload: BrowserFlowPayload) throws -> BrowserEventSnapshot? {
         var snapshot: BrowserEventSnapshot?
 
         try performAndWait {
@@ -113,7 +121,7 @@ final class BrowserEventManager {
     }
 
     @discardableResult
-    func logFlowMetadata(from flow: NEFilterFlow) throws -> BrowserEventSnapshot? {
+    public func logFlowMetadata(from flow: NEFilterFlow) throws -> BrowserEventSnapshot? {
         guard let payload = flow.browserFlowPayload() else {
             return nil
         }
@@ -121,7 +129,7 @@ final class BrowserEventManager {
         return try logEvent(payload)
     }
 
-    func fetchEvents(for host: String? = nil, app: String? = nil, limit: Int? = nil) throws -> [BrowserEventSnapshot] {
+    public func fetchEvents(for host: String? = nil, app: String? = nil, limit: Int? = nil) throws -> [BrowserEventSnapshot] {
         let request: NSFetchRequest<BrowserEvent> = BrowserEvent.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(BrowserEvent.timestamp), ascending: false)]
 
@@ -165,11 +173,11 @@ final class BrowserEventManager {
         return snapshots
     }
 
-    func fetchEvents(forPage page: String) throws -> [BrowserEventSnapshot] {
+    public func fetchEvents(forPage page: String) throws -> [BrowserEventSnapshot] {
         return try fetchEvents().filter { pageKey(for: $0) == page }
     }
 
-    func fetchHostSummaries(limit: Int = 100) throws -> [BrowserHostSummary] {
+    public func fetchHostSummaries(limit: Int = 100) throws -> [BrowserHostSummary] {
         let events = try fetchEvents()
 
         var hostMap: [String: BrowserHostSummary] = [:]
@@ -234,7 +242,7 @@ final class BrowserEventManager {
         return event.host ?? ""
     }
 
-    func pruneOldData(days: Int) throws {
+    public func pruneOldData(days: Int) throws {
         let cutoff = Date().addingTimeInterval(TimeInterval(-days * 24 * 60 * 60))
         let request: NSFetchRequest<BrowserEvent> = BrowserEvent.fetchRequest()
         request.predicate = NSPredicate(format: "%K < %@", #keyPath(BrowserEvent.timestamp), cutoff as NSDate)

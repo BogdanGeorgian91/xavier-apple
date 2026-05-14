@@ -6,6 +6,7 @@
 
 import Foundation
 import UIKit
+import XavierShared
 
 extension UIViewController {
     
@@ -146,4 +147,3 @@ extension UIViewController {
     }
     
 }
-

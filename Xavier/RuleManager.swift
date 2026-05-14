@@ -86,19 +86,26 @@ extension DataWildCard {
 
 
 
-class RuleManager {
+public class RuleManager {
     
     private var managedObjectModel:NSManagedObjectModel?
     private var persistentStoreCoordinator:NSPersistentStoreCoordinator?
     private var managedObjectContext:NSManagedObjectContext
     
-    init() throws {
-        // persistent store coordinator
-        guard let directoryURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupIdentifier)?.appendingPathComponent("data"),
-            let modelURL = Bundle.main.url(forResource:"XavierDataModel", withExtension: "momd"),
+    public convenience init() throws {
+        #if os(iOS)
+        try self.init(resolver: IOSBundleResolver())
+        #else
+        try self.init(resolver: FrameworkBundleResolver())
+        #endif
+    }
+    
+    public init(resolver: BundleResolver, storeName: String = "db.sqlite") throws {
+        guard let directoryURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: resolver.appGroupIdentifier)?.appendingPathComponent("data"),
+            let modelURL = resolver.modelBundle.url(forResource:"XavierDataModel", withExtension: "momd"),
             let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)
             else {
-                throw Errors.createDatabase
+            throw Errors.createDatabase
         }
         
         // create directory if it doesn't exist
@@ -110,7 +117,7 @@ class RuleManager {
                        NSInferMappingModelAutomaticallyOption: true]
         
         // db file
-        let dbURL = directoryURL.appendingPathComponent("db.sqlite")
+        let dbURL = directoryURL.appendingPathComponent(storeName)
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         
         let store = try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: options)
@@ -123,7 +130,7 @@ class RuleManager {
         managedObjectContext.persistentStoreCoordinator = coordinator
     }
     
-    enum Errors:Error {
+    public enum Errors:Error {
         case createDatabase
         case missingObjectField
         case noSuchRule
@@ -133,7 +140,7 @@ class RuleManager {
     
     ///MARK: Blocks
     
-    func fetchAll() throws -> [Rule] {
+    public func fetchAll() throws -> [Rule] {
         var rules:[Rule] = []
         
         let request:NSFetchRequest<DataRule> = DataRule.fetchRequest()
@@ -149,7 +156,7 @@ class RuleManager {
         return rules
     }
     
-    func create(rule:Rule) throws  {
+    public func create(rule:Rule) throws  {
         let (type, value) = rule.ruleType.typeAndValue
         
         guard try findDataRule(type: type, value: value) == nil else {
@@ -163,7 +170,7 @@ class RuleManager {
         try saveContext()
     }
     
-    func delete(rule:Rule) throws  {
+    public func delete(rule:Rule) throws  {
         let (type, value) = rule.ruleType.typeAndValue
         
         guard let dataRule = try findDataRule(type: type, value: value) else {
@@ -178,7 +185,7 @@ class RuleManager {
     }
 
     
-    func deleteAll() throws {
+    public func deleteAll() throws {
         guard let directoryURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupIdentifier)?.appendingPathComponent("data") else {
             return
         }
@@ -194,7 +201,7 @@ class RuleManager {
         RuleManager.recreateShared()
     }
     
-    func toggle(rule:Rule) throws  {
+    public func toggle(rule:Rule) throws  {
         let (type, value) = rule.ruleType.typeAndValue
         
         guard let dataRule = try findDataRule(type: type, value: value) else {
@@ -259,7 +266,7 @@ class RuleManager {
         return try findDataRule(type: "host", value: host)
     }
     
-    func getRule(for app:String, hostname:String?) throws -> Rule? {
+    public func getRule(for app:String, hostname:String?) throws -> Rule? {
         return try self.getDataRule(for: app, hostname: hostname)?.toRule()
     }
     
@@ -282,7 +289,7 @@ class RuleManager {
     }
     
     //MARK: - Core Data Saving/Roll back support
-    func saveContext() throws {
+    public func saveContext() throws {
         var caughtError:Error?
         self.managedObjectContext.performAndWait {
             if self.managedObjectContext.hasChanges {
@@ -299,7 +306,7 @@ class RuleManager {
         }
     }
     
-    func rollbackContext () {        
+    public func rollbackContext () {        
         self.managedObjectContext.performAndWait {
             if self.managedObjectContext.hasChanges {
                 self.managedObjectContext.rollback()
@@ -311,7 +318,7 @@ class RuleManager {
 extension RuleManager {
     private static var _shared: RuleManager?
 
-    static var shared: RuleManager {
+    public static var shared: RuleManager {
         if let existing = _shared {
             return existing
         }
@@ -320,7 +327,7 @@ extension RuleManager {
         return instance
     }
 
-    static func recreateShared() {
+    public static func recreateShared() {
         _shared = try? RuleManager()
     }
 }

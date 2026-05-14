@@ -7,7 +7,7 @@
 import Foundation
 import CommonCrypto
 
-func uniqueIdentifier(of attrs:String...) -> String {
+public func uniqueIdentifier(of attrs:String...) -> String {
     var input = ""
     attrs.forEach {
         input += $0.SHA256.hex
@@ -15,4 +15,3 @@ func uniqueIdentifier(of attrs:String...) -> String {
     
     return String(input.SHA256.hex.suffix(16))
 }
-

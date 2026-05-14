@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class WebsiteDetailViewController: UITableViewController {
     private let host: String

@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import XavierShared
 
 extension AppDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

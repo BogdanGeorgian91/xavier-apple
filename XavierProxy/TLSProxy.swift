@@ -3,24 +3,26 @@ import Network
 import NetworkExtension
 import Security
 
-final class TLSProxy {
+public final class TLSProxy {
     private let certificateManager = CertificateManager.shared
     private var activeRelay: TLSRelay?
     private var activeHTTPObserver: HTTPObserver?
 
-    enum TLSResult {
+    public enum TLSResult {
         case completed(InspectedRequestPayload)
         case pinningDetected(hostname: String)
         case passthrough(hostname: String, port: UInt16)
         case error(Error)
     }
 
-    func proxyFlow(_ flow: NEAppProxyTCPFlow,
-                   hostname: String,
-                   port: UInt16,
-                   flowID: UUID,
-                   appID: String,
-                   completion: @escaping (TLSProxy.TLSResult) -> Void) {
+    public init() {}
+
+    public func proxyFlow(_ flow: NEAppProxyTCPFlow,
+                          hostname: String,
+                          port: UInt16,
+                          flowID: UUID,
+                          appID: String,
+                          completion: @escaping (TLSProxy.TLSResult) -> Void) {
         if port == 443 && !hostname.isEmpty {
             if certificateManager.isPinnedDomain(hostname) {
                 completion(.passthrough(hostname: hostname, port: port))
@@ -195,6 +197,9 @@ final class TLSRelay {
     private var needsAnotherAdvance = false
     private var finished = false
 
+    private var isBufferingOutbound = true
+    private var bufferedOutboundData = Data()
+    private var streamingRemainingBody = false
     private var sslContext: SSLContext?
 
     init(flow: NEAppProxyTCPFlow, hostname: String, port: UInt16, identity: SecIdentity, flowID: UUID, appID: String) {
@@ -459,6 +464,10 @@ final class TLSRelay {
     private func handleClientPlaintext(_ plaintext: Data) {
         if requestMetadata == nil {
             requestHeaderBuffer.append(plaintext)
+            if isBufferingOutbound {
+                bufferedOutboundData.append(plaintext)
+            }
+
             if let (meta, headerEnd) = HTTPParser.parseRequestHeaders(from: requestHeaderBuffer) {
                 requestMetadata = meta
                 originalRequestHeaders = meta.headers
@@ -473,10 +482,45 @@ final class TLSRelay {
                     return
                 }
 
+                let rules = ModificationRuleManager.shared.fetchEnabledRules()
+                let matchingRules = rules.filter { $0.host == hostname || $0.host == "*" }
+
+                if !matchingRules.isEmpty {
+                    let mod = RequestModifier.modifyRequest(
+                        request: meta,
+                        originalBody: originalRequestBody,
+                        host: hostname,
+                        rules: matchingRules
+                    )
+                    if mod.wasModified {
+                        requestModified = true
+                        let rebuilt = RequestModifier.rebuildRequest(
+                            original: meta,
+                            modification: mod,
+                            body: originalRequestBody
+                        )
+                        isBufferingOutbound = false
+                        sendToServer(rebuilt)
+                        // Forward any remaining body data beyond what was captured
+                        if let bodySizeStr = meta.headers["Content-Length"],
+                           let contentLength = Int(bodySizeStr),
+                           contentLength > (originalRequestBody?.count ?? 0) {
+                            streamingRemainingBody = true
+                        }
+                        requestHeaderBuffer.removeAll(keepingCapacity: true)
+                        return
+                    }
+                }
+
+                isBufferingOutbound = false
+                sendToServer(bufferedOutboundData)
+                bufferedOutboundData.removeAll(keepingCapacity: true)
                 requestHeaderBuffer.removeAll(keepingCapacity: true)
             } else if requestHeaderBuffer.count > HTTPParser.maxBodyCaptureSize {
                 requestHeaderBuffer = HTTPParser.truncate(requestHeaderBuffer)
             }
+
+            if isBufferingOutbound { return }
         } else {
             appendCapturedBodyChunk(plaintext, to: &requestCapturedBody)
         }
@@ -569,7 +613,7 @@ final class TLSRelay {
                 finalHeaders["Connection"] = "close"
 
                 let headerStr = HTTPParser.serializeHeaders(finalHeaders)
-                var headerData = "HTTP/\(meta.httpVersion) \(meta.statusCode) \(meta.reasonPhrase)\r\n".data(using: .utf8)!
+                var headerData = "\(meta.httpVersion) \(meta.statusCode) \(meta.reasonPhrase)\r\n".data(using: .utf8)!
                 headerData.append(headerStr.data(using: .utf8)!)
                 headerData.append("\r\n\r\n".data(using: .utf8)!)
                 
@@ -929,7 +973,7 @@ connection.stateUpdateHandler = { (state: NWConnection.State) in
                 finalHeaders["Connection"] = "close"
 
                 let headerStr = HTTPParser.serializeHeaders(finalHeaders)
-                var headerData = "HTTP/\(meta.httpVersion) \(meta.statusCode) \(meta.reasonPhrase)\r\n".data(using: .utf8)!
+                var headerData = "\(meta.httpVersion) \(meta.statusCode) \(meta.reasonPhrase)\r\n".data(using: .utf8)!
                 headerData.append(headerStr.data(using: .utf8)!)
                 headerData.append("\r\n\r\n".data(using: .utf8)!)
                 
@@ -1035,7 +1079,7 @@ connection.stateUpdateHandler = { (state: NWConnection.State) in
     }
 }
 
-enum TLSProxyError: Error {
+public enum TLSProxyError: Error {
     case contextCreationFailed
     case setupFailed(OSStatus)
     case handshakeFailed(OSStatus)

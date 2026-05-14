@@ -6,6 +6,7 @@
 
 import NetworkExtension
 import UserNotifications
+import XavierShared
 
 class FilterControlProvider: NEFilterControlProvider {
     let mutex = Mutex()

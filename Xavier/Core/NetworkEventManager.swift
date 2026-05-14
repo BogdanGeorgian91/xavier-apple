@@ -9,32 +9,32 @@ import CoreData
 import Foundation
 import NetworkExtension
 
-struct NetworkEventPayload {
-    let identifier: String?
-    let timestamp: Date
-    let app: AppName
-    let host: String?
-    let ipAddress: String?
-    let port: Int32?
-    let localIP: String?
-    let localPort: Int32?
-    let bytesInbound: Int64
-    let bytesOutbound: Int64
-    let transportProtocol: String?
-    let direction: String?
+public struct NetworkEventPayload {
+    public let identifier: String?
+    public let timestamp: Date
+    public let app: AppName
+    public let host: String?
+    public let ipAddress: String?
+    public let port: Int32?
+    public let localIP: String?
+    public let localPort: Int32?
+    public let bytesInbound: Int64
+    public let bytesOutbound: Int64
+    public let transportProtocol: String?
+    public let direction: String?
 
-    init(identifier: String? = nil,
-         timestamp: Date = Date(),
-         app: AppName,
-         host: String?,
-         ipAddress: String?,
-         port: Int32?,
-         localIP: String? = nil,
-         localPort: Int32? = nil,
-         bytesInbound: Int64 = 0,
-         bytesOutbound: Int64 = 0,
-         transportProtocol: String?,
-         direction: String?) {
+    public init(identifier: String? = nil,
+                timestamp: Date = Date(),
+                app: AppName,
+                host: String?,
+                ipAddress: String?,
+                port: Int32?,
+                localIP: String? = nil,
+                localPort: Int32? = nil,
+                bytesInbound: Int64 = 0,
+                bytesOutbound: Int64 = 0,
+                transportProtocol: String?,
+                direction: String?) {
         self.identifier = identifier
         self.timestamp = timestamp
         self.app = app
@@ -50,42 +50,80 @@ struct NetworkEventPayload {
     }
 }
 
-struct NetworkEventSnapshot {
-    let identifier: String?
-    let timestamp: Date
-    let app: AppName
-    let host: String?
-    let ipAddress: String?
-    let port: Int32?
-    let localIP: String?
-    let localPort: Int32?
-    let bytesInbound: Int64
-    let bytesOutbound: Int64
-    let transportProtocol: String?
-    let direction: String?
+public struct NetworkEventSnapshot {
+    public let identifier: String?
+    public let timestamp: Date
+    public let app: AppName
+    public let host: String?
+    public let ipAddress: String?
+    public let port: Int32?
+    public let localIP: String?
+    public let localPort: Int32?
+    public let bytesInbound: Int64
+    public let bytesOutbound: Int64
+    public let transportProtocol: String?
+    public let direction: String?
+
+    public init(identifier: String?, timestamp: Date, app: AppName, host: String?, ipAddress: String?, port: Int32?, localIP: String?, localPort: Int32?, bytesInbound: Int64, bytesOutbound: Int64, transportProtocol: String?, direction: String?) {
+        self.identifier = identifier
+        self.timestamp = timestamp
+        self.app = app
+        self.host = host
+        self.ipAddress = ipAddress
+        self.port = port
+        self.localIP = localIP
+        self.localPort = localPort
+        self.bytesInbound = bytesInbound
+        self.bytesOutbound = bytesOutbound
+        self.transportProtocol = transportProtocol
+        self.direction = direction
+    }
 }
 
-struct NetworkEventAppSummary {
-    let app: AppName
-    let lastTimestamp: Date
-    let lastHost: String?
-    let totalBytesInbound: Int64
-    let totalBytesOutbound: Int64
-    let eventCount: Int
+public struct NetworkEventAppSummary {
+    public let app: AppName
+    public let lastTimestamp: Date
+    public let lastHost: String?
+    public let totalBytesInbound: Int64
+    public let totalBytesOutbound: Int64
+    public let eventCount: Int
+
+    public init(app: AppName, lastTimestamp: Date, lastHost: String?, totalBytesInbound: Int64, totalBytesOutbound: Int64, eventCount: Int) {
+        self.app = app
+        self.lastTimestamp = lastTimestamp
+        self.lastHost = lastHost
+        self.totalBytesInbound = totalBytesInbound
+        self.totalBytesOutbound = totalBytesOutbound
+        self.eventCount = eventCount
+    }
 }
 
-struct NetworkActivityOverview {
-    let recentBytesInbound: Int64
-    let recentBytesOutbound: Int64
-    let activeAppCount: Int
-    let recentEventCount: Int
-    let newHostCountToday: Int
-    let lastActivityTimestamp: Date?
+public struct NetworkActivityOverview {
+    public let recentBytesInbound: Int64
+    public let recentBytesOutbound: Int64
+    public let activeAppCount: Int
+    public let recentEventCount: Int
+    public let newHostCountToday: Int
+    public let lastActivityTimestamp: Date?
+
+    public init(recentBytesInbound: Int64, recentBytesOutbound: Int64, activeAppCount: Int, recentEventCount: Int, newHostCountToday: Int, lastActivityTimestamp: Date?) {
+        self.recentBytesInbound = recentBytesInbound
+        self.recentBytesOutbound = recentBytesOutbound
+        self.activeAppCount = activeAppCount
+        self.recentEventCount = recentEventCount
+        self.newHostCountToday = newHostCountToday
+        self.lastActivityTimestamp = lastActivityTimestamp
+    }
 }
 
-struct NetworkEventDashboardData {
-    let appSummaries: [NetworkEventAppSummary]
-    let activityOverview: NetworkActivityOverview
+public struct NetworkEventDashboardData {
+    public let appSummaries: [NetworkEventAppSummary]
+    public let activityOverview: NetworkActivityOverview
+
+    public init(appSummaries: [NetworkEventAppSummary], activityOverview: NetworkActivityOverview) {
+        self.appSummaries = appSummaries
+        self.activityOverview = activityOverview
+    }
 }
 
 extension NetworkEvent {
@@ -126,8 +164,8 @@ extension NetworkEvent {
     }
 }
 
-final class NetworkEventManager {
-    static let shared: NetworkEventManager = {
+public final class NetworkEventManager {
+    public static let shared: NetworkEventManager = {
         do {
             return try NetworkEventManager()
         } catch {
@@ -135,18 +173,26 @@ final class NetworkEventManager {
         }
     }()
 
-    enum Errors: Error {
+    public enum Errors: Error {
         case createDatabase
         case missingObjectField
     }
 
     private let managedObjectContext: NSManagedObjectContext
 
-    init() throws {
+    public convenience init() throws {
+        #if os(iOS)
+        try self.init(resolver: IOSBundleResolver())
+        #else
+        try self.init(resolver: FrameworkBundleResolver())
+        #endif
+    }
+
+    public init(resolver: BundleResolver, storeName: String = "db.sqlite") throws {
         guard let directoryURL = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupIdentifier)?
+            .containerURL(forSecurityApplicationGroupIdentifier: resolver.appGroupIdentifier)?
             .appendingPathComponent("data"),
-            let modelURL = Bundle.main.url(forResource: "XavierDataModel", withExtension: "momd"),
+            let modelURL = resolver.modelBundle.url(forResource: "XavierDataModel", withExtension: "momd"),
             let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
             throw Errors.createDatabase
         }
@@ -158,7 +204,7 @@ final class NetworkEventManager {
         let options = [NSMigratePersistentStoresAutomaticallyOption: true,
                        NSInferMappingModelAutomaticallyOption: true]
 
-        let dbURL = directoryURL.appendingPathComponent("db.sqlite")
+        let dbURL = directoryURL.appendingPathComponent(storeName)
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         let store = try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: options)
         store.didAdd(to: coordinator)
@@ -168,7 +214,7 @@ final class NetworkEventManager {
     }
 
     @discardableResult
-    func logEvent(_ payload: NetworkEventPayload) throws -> NetworkEventSnapshot {
+    public func logEvent(_ payload: NetworkEventPayload) throws -> NetworkEventSnapshot {
         var snapshot: NetworkEventSnapshot?
 
         try performAndWait {
@@ -181,7 +227,7 @@ final class NetworkEventManager {
     }
 
     @discardableResult
-    func logFlowMetadata(from flow: NEFilterFlow) throws -> NetworkEventSnapshot? {
+    public func logFlowMetadata(from flow: NEFilterFlow) throws -> NetworkEventSnapshot? {
         guard let payload = flow.networkEventPayload() else {
             return nil
         }
@@ -189,7 +235,7 @@ final class NetworkEventManager {
         return try logEvent(payload)
     }
 
-    func updateLatestMatchingEvent(with payload: NetworkEventPayload) throws {
+    public func updateLatestMatchingEvent(with payload: NetworkEventPayload) throws {
         var shouldInsert = false
 
         try performAndWait {
@@ -212,7 +258,7 @@ final class NetworkEventManager {
         try saveContext()
     }
 
-    func updateBytes(from report: NEFilterReport) throws {
+    public func updateBytes(from report: NEFilterReport) throws {
         let bytesInbound: Int64
         let bytesOutbound: Int64
 
@@ -234,7 +280,7 @@ final class NetworkEventManager {
         try updateLatestMatchingEvent(with: payload)
     }
 
-    func fetchEvents(for app: AppName? = nil, limit: Int? = nil) throws -> [NetworkEventSnapshot] {
+    public func fetchEvents(for app: AppName? = nil, limit: Int? = nil) throws -> [NetworkEventSnapshot] {
         let request: NSFetchRequest<NetworkEvent> = NetworkEvent.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(NetworkEvent.timestamp), ascending: false)]
         if let app = app {
@@ -256,7 +302,7 @@ final class NetworkEventManager {
         return snapshots
     }
 
-    func fetchUnifiedEvents(for app: AppName, host: String, limit: Int = 100) throws -> [UnifiedNetworkEvent] {
+    public func fetchUnifiedEvents(for app: AppName, host: String, limit: Int = 100) throws -> [UnifiedNetworkEvent] {
         let networkEvents = try fetchEvents(for: app, limit: limit).filter { $0.host == host || $0.ipAddress == host }
         let browserEvents = try BrowserEventManager.shared.fetchEvents(for: host, app: app, limit: limit)
         
@@ -298,7 +344,7 @@ final class NetworkEventManager {
         return unifiedEvents
     }
 
-    func fetchAppSummaries(filter: ((AppName) -> Bool)? = nil) throws -> [NetworkEventAppSummary] {
+    public func fetchAppSummaries(filter: ((AppName) -> Bool)? = nil) throws -> [NetworkEventAppSummary] {
         let events = try fetchEvents()
         var summaries: [AppName: NetworkEventAppSummary] = [:]
 
@@ -334,9 +380,9 @@ final class NetworkEventManager {
         }
     }
 
-    func fetchDashboardData(filter: ((AppName) -> Bool)? = nil,
-                            referenceDate: Date = Date(),
-                            recentWindow: TimeInterval = 60 * 60) throws -> NetworkEventDashboardData {
+    public func fetchDashboardData(filter: ((AppName) -> Bool)? = nil,
+                                   referenceDate: Date = Date(),
+                                   recentWindow: TimeInterval = 60 * 60) throws -> NetworkEventDashboardData {
         let events = try fetchEvents()
         let recentCutoff = referenceDate.addingTimeInterval(-recentWindow)
         let startOfDay = Calendar.current.startOfDay(for: referenceDate)
@@ -413,15 +459,15 @@ final class NetworkEventManager {
                                          activityOverview: activityOverview)
     }
 
-    func fetchActivityOverview(filter: ((AppName) -> Bool)? = nil,
-                               referenceDate: Date = Date(),
-                               recentWindow: TimeInterval = 60 * 60) throws -> NetworkActivityOverview {
+    public func fetchActivityOverview(filter: ((AppName) -> Bool)? = nil,
+                                      referenceDate: Date = Date(),
+                                      recentWindow: TimeInterval = 60 * 60) throws -> NetworkActivityOverview {
         return try fetchDashboardData(filter: filter,
                                       referenceDate: referenceDate,
                                       recentWindow: recentWindow).activityOverview
     }
 
-    func pruneOldData(days: Int) throws {
+    public func pruneOldData(days: Int) throws {
         let cutoff = Date().addingTimeInterval(TimeInterval(-days * 24 * 60 * 60))
         let request: NSFetchRequest<NetworkEvent> = NetworkEvent.fetchRequest()
         request.predicate = NSPredicate(format: "%K < %@", #keyPath(NetworkEvent.timestamp), cutoff as NSDate)

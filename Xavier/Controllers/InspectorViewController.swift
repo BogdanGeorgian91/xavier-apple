@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class InspectorViewController: UITableViewController {
     private enum Section: Int, CaseIterable {

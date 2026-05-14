@@ -1,20 +1,27 @@
 import Foundation
 
-struct ModificationResult {
-    let modifiedBody: Data?
-    let modifiedHeaders: [String: String]?
-    let wasModified: Bool
-    let strippedScriptCount: Int
+public struct ModificationResult {
+    public let modifiedBody: Data?
+    public let modifiedHeaders: [String: String]?
+    public let wasModified: Bool
+    public let strippedScriptCount: Int
+
+    public init(modifiedBody: Data?, modifiedHeaders: [String: String]?, wasModified: Bool, strippedScriptCount: Int) {
+        self.modifiedBody = modifiedBody
+        self.modifiedHeaders = modifiedHeaders
+        self.wasModified = wasModified
+        self.strippedScriptCount = strippedScriptCount
+    }
 }
 
-final class ResponseModifier {
-    static let maxModifiableBodySize = 256 * 1024
+public final class ResponseModifier {
+    public static let maxModifiableBodySize = 256 * 1024
 
-    static func modifyResponse(body: Data,
-                               headers: [String: String],
-                               host: String,
-                               blockedDomains: Set<String>,
-                               stripConfiguration: ScriptStrippingHost?) -> ModificationResult? {
+    public static func modifyResponse(body: Data,
+                                      headers: [String: String],
+                                      host: String,
+                                      blockedDomains: Set<String>,
+                                      stripConfiguration: ScriptStrippingHost?) -> ModificationResult? {
         guard let stripConfiguration = stripConfiguration, stripConfiguration.enabled else { return nil }
 
         guard let contentType = headers["Content-Type"]?.lowercased() ?? headers["content-type"]?.lowercased(),
@@ -76,7 +83,7 @@ final class ResponseModifier {
         )
     }
 
-    static func canModify(responseHeaders: [String: String], bodySize: Int) -> Bool {
+    public static func canModify(responseHeaders: [String: String], bodySize: Int) -> Bool {
         guard bodySize < maxModifiableBodySize else { return false }
         let contentType = (responseHeaders["Content-Type"] ?? responseHeaders["content-type"])?.lowercased() ?? ""
         return contentType.contains("text/html")
@@ -248,6 +255,6 @@ extension Data {
     }
 }
 
-enum ResponseModifierError: Error {
+public enum ResponseModifierError: Error {
     case decompressionFailed
 }

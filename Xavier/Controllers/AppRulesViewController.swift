@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 class AppRulesViewController: UITableViewController {
     private let appName: AppName

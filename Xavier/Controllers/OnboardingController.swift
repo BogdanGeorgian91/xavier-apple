@@ -8,6 +8,7 @@ import Foundation
 import UIKit
 import NetworkExtension
 import UserNotifications
+import XavierShared
 
 class OBNetworkPermissionsController:UIViewController {
     @IBOutlet weak var enabledNetSwitch: UISwitch?

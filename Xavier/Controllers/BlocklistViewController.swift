@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class BlocklistViewController: UITableViewController {
     private var entries = [BlocklistEntry]()

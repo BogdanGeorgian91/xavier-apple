@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 //
 //  ViewController.swift
 //  Xavier
@@ -679,4 +680,3 @@ extension FilterSettingsController: RuleDetailDelegate {
         loadRules()
     }
 }
-

@@ -1,5 +1,6 @@
 import Foundation
 import Security
+import XavierShared
 
 enum CACheckStatus {
     case notInstalled

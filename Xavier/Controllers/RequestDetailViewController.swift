@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class RequestDetailViewController: UITableViewController {
     private enum Section: Int, CaseIterable {

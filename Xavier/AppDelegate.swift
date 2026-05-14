@@ -7,6 +7,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import XavierShared
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {

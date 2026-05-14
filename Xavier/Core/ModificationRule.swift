@@ -1,6 +1,6 @@
 import Foundation
 
-enum ModificationType: String, Codable {
+public enum ModificationType: String, Codable {
     case addHeader
     case removeHeader
     case replaceHeader
@@ -8,44 +8,53 @@ enum ModificationType: String, Codable {
     case replaceBody
 }
 
-struct ModificationRule: Codable {
-    let identifier: UUID
-    let host: String
-    let type: ModificationType
-    let matchPattern: String?
-    let replacementValue: String?
-    let enabled: Bool
+public struct ModificationRule: Codable {
+    public let identifier: UUID
+    public let host: String
+    public let type: ModificationType
+    public let matchPattern: String?
+    public let replacementValue: String?
+    public let enabled: Bool
+
+    public init(identifier: UUID, host: String, type: ModificationType, matchPattern: String?, replacementValue: String?, enabled: Bool) {
+        self.identifier = identifier
+        self.host = host
+        self.type = type
+        self.matchPattern = matchPattern
+        self.replacementValue = replacementValue
+        self.enabled = enabled
+    }
 }
 
-final class ModificationRuleManager {
-    static let shared = ModificationRuleManager()
+public final class ModificationRuleManager {
+    public static let shared = ModificationRuleManager()
 
     private let defaults = UserDefaults(suiteName: Constants.appGroupIdentifier)
     private let rulesKey = Constants.ProxyKeys.modificationRulesKey
 
     private init() {}
 
-    func fetchEnabledRules() -> [ModificationRule] {
+    public func fetchEnabledRules() -> [ModificationRule] {
         return loadRules().filter { $0.enabled }
     }
 
-    func fetchAllRules() -> [ModificationRule] {
+    public func fetchAllRules() -> [ModificationRule] {
         return loadRules()
     }
 
-    func addRule(_ rule: ModificationRule) {
+    public func addRule(_ rule: ModificationRule) {
         var rules = loadRules()
         rules.append(rule)
         saveRules(rules)
     }
 
-    func removeRule(id: UUID) {
+    public func removeRule(id: UUID) {
         var rules = loadRules()
         rules.removeAll { $0.identifier == id }
         saveRules(rules)
     }
 
-    func updateRule(id: UUID, enabled: Bool) {
+    public func updateRule(id: UUID, enabled: Bool) {
         var rules = loadRules()
         if let index = rules.firstIndex(where: { $0.identifier == id }) {
             rules[index] = ModificationRule(

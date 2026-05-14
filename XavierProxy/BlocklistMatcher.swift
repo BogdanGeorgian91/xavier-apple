@@ -1,7 +1,7 @@
 import Foundation
 
-struct BlocklistMatcher {
-    static func isBlocked(hostname: String, patterns: [String]) -> Bool {
+public struct BlocklistMatcher {
+    public static func isBlocked(hostname: String, patterns: [String]) -> Bool {
         for pattern in patterns {
             if matchesPattern(hostname: hostname, pattern: pattern) {
                 return true
@@ -10,7 +10,7 @@ struct BlocklistMatcher {
         return false
     }
 
-    static func loadEnabledPatterns() -> [String] {
+    public static func loadEnabledPatterns() -> [String] {
         return ScriptBlocklistManager.shared.fetchEnabledPatterns()
     }
 

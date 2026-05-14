@@ -6,6 +6,7 @@
 
 import Foundation
 import UIKit
+import XavierShared
 
 enum AppColors {
     case highlight

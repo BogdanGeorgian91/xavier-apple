@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class StripScriptsViewController: UITableViewController {
     private var hosts = [ScriptStrippingHost]()

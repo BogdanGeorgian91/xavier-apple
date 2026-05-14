@@ -1,7 +1,15 @@
 import Foundation
 import NetworkExtension
+import XavierShared
 
 class AppProxyProvider: NEAppProxyProvider {
+    // SEMANTICS NOTE:
+    // In NEAppProxyProvider (iOS): return false = refuse connection
+    // In NETransparentProxyProvider (macOS): return false = allow direct, bypass proxy
+    // XavierShared must handle both semantics correctly.
+    // When porting to macOS, flows that should bypass proxying must return false,
+    // while flows that should be refused must explicitly closeReadWithError/closeWriteWithError.
+
     private var flowHandlers = [UUID: FlowHandler]()
     private let maxConcurrentMITMFlows = 15
     private let tlsProxy = TLSProxy()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import XavierShared
 
 final class DashboardViewController: UITableViewController {
     enum Scope {

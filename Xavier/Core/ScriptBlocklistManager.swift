@@ -1,20 +1,30 @@
 import Foundation
 
-struct BlocklistEntry: Codable {
-    let identifier: String
-    let domainPattern: String
-    let enabled: Bool
-    let isPreset: Bool
-    let isStripEnabled: Bool
-    let createdAt: Date
-    let updatedAt: Date
+public struct BlocklistEntry: Codable {
+    public let identifier: String
+    public let domainPattern: String
+    public let enabled: Bool
+    public let isPreset: Bool
+    public let isStripEnabled: Bool
+    public let createdAt: Date
+    public let updatedAt: Date
+
+    public init(identifier: String, domainPattern: String, enabled: Bool, isPreset: Bool, isStripEnabled: Bool, createdAt: Date, updatedAt: Date) {
+        self.identifier = identifier
+        self.domainPattern = domainPattern
+        self.enabled = enabled
+        self.isPreset = isPreset
+        self.isStripEnabled = isStripEnabled
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+    }
 }
 
-enum ScriptStrippingMode: String, Codable {
+public enum ScriptStrippingMode: String, Codable {
     case smartAllowlist
     case fineGrained
 
-    var title: String {
+    public var title: String {
         switch self {
         case .smartAllowlist: return "Smart Allowlist"
         case .fineGrained: return "Fine-Grained Rules"
@@ -22,11 +32,11 @@ enum ScriptStrippingMode: String, Codable {
     }
 }
 
-enum ScriptRuleAction: String, Codable {
+public enum ScriptRuleAction: String, Codable {
     case keep
     case remove
 
-    var title: String {
+    public var title: String {
         switch self {
         case .keep: return "Keep"
         case .remove: return "Remove"
@@ -34,12 +44,12 @@ enum ScriptRuleAction: String, Codable {
     }
 }
 
-enum ScriptRuleMatchType: String, Codable {
+public enum ScriptRuleMatchType: String, Codable {
     case srcContains
     case srcHostMatches
     case inlineContains
 
-    var title: String {
+    public var title: String {
         switch self {
         case .srcContains: return "Script src contains"
         case .srcHostMatches: return "Script src host matches"
@@ -48,42 +58,61 @@ enum ScriptRuleMatchType: String, Codable {
     }
 }
 
-struct ScriptRule: Codable {
-    let identifier: String
-    let action: ScriptRuleAction
-    let matchType: ScriptRuleMatchType
-    let pattern: String
-    let enabled: Bool
-    let createdAt: Date
-    let updatedAt: Date
+public struct ScriptRule: Codable {
+    public let identifier: String
+    public let action: ScriptRuleAction
+    public let matchType: ScriptRuleMatchType
+    public let pattern: String
+    public let enabled: Bool
+    public let createdAt: Date
+    public let updatedAt: Date
+
+    public init(identifier: String, action: ScriptRuleAction, matchType: ScriptRuleMatchType, pattern: String, enabled: Bool, createdAt: Date, updatedAt: Date) {
+        self.identifier = identifier
+        self.action = action
+        self.matchType = matchType
+        self.pattern = pattern
+        self.enabled = enabled
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+    }
 }
 
-struct ScriptStrippingHost: Codable {
-    let host: String
-    let enabled: Bool
-    let mode: ScriptStrippingMode
-    let rules: [ScriptRule]
-    let createdAt: Date
-    let updatedAt: Date
+public struct ScriptStrippingHost: Codable {
+    public let host: String
+    public let enabled: Bool
+    public let mode: ScriptStrippingMode
+    public let rules: [ScriptRule]
+    public let createdAt: Date
+    public let updatedAt: Date
+
+    public init(host: String, enabled: Bool, mode: ScriptStrippingMode, rules: [ScriptRule], createdAt: Date, updatedAt: Date) {
+        self.host = host
+        self.enabled = enabled
+        self.mode = mode
+        self.rules = rules
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+    }
 }
 
-final class ScriptStrippingManager {
-    static let shared = ScriptStrippingManager()
+public final class ScriptStrippingManager {
+    public static let shared = ScriptStrippingManager()
 
     private let defaults = UserDefaults(suiteName: Constants.appGroupIdentifier)
     private let hostsKey = Constants.ProxyKeys.scriptStrippingHostsKey
 
     private init() {}
 
-    func fetchAllHosts() -> [ScriptStrippingHost] {
+    public func fetchAllHosts() -> [ScriptStrippingHost] {
         return migratedHosts()
     }
 
-    func fetchEnabledHosts() -> [ScriptStrippingHost] {
+    public func fetchEnabledHosts() -> [ScriptStrippingHost] {
         return migratedHosts().filter(\.enabled)
     }
 
-    func hostConfiguration(for host: String) -> ScriptStrippingHost? {
+    public func hostConfiguration(for host: String) -> ScriptStrippingHost? {
         let normalized = normalize(host)
         let hosts = migratedHosts().filter(\.enabled)
 
@@ -108,7 +137,7 @@ final class ScriptStrippingManager {
         return false
     }
 
-    func upsertHost(_ host: String, enabled: Bool = true, mode: ScriptStrippingMode = .smartAllowlist) {
+    public func upsertHost(_ host: String, enabled: Bool = true, mode: ScriptStrippingMode = .smartAllowlist) {
         let normalized = normalize(host)
         guard !normalized.isEmpty else { return }
 
@@ -133,7 +162,7 @@ final class ScriptStrippingManager {
         saveHosts(hosts)
     }
 
-    func setEnabled(_ enabled: Bool, forHost host: String) {
+    public func setEnabled(_ enabled: Bool, forHost host: String) {
         updateHost(host) { current in
             ScriptStrippingHost(host: current.host,
                                 enabled: enabled,
@@ -144,7 +173,7 @@ final class ScriptStrippingManager {
         }
     }
 
-    func setMode(_ mode: ScriptStrippingMode, forHost host: String) {
+    public func setMode(_ mode: ScriptStrippingMode, forHost host: String) {
         updateHost(host) { current in
             ScriptStrippingHost(host: current.host,
                                 enabled: current.enabled,
@@ -155,7 +184,7 @@ final class ScriptStrippingManager {
         }
     }
 
-    func addRule(_ rule: ScriptRule, toHost host: String) {
+    public func addRule(_ rule: ScriptRule, toHost host: String) {
         updateHost(host) { current in
             var rules = current.rules
             rules.append(rule)
@@ -168,7 +197,7 @@ final class ScriptStrippingManager {
         }
     }
 
-    func removeRule(identifier: String, fromHost host: String) {
+    public func removeRule(identifier: String, fromHost host: String) {
         updateHost(host) { current in
             ScriptStrippingHost(host: current.host,
                                 enabled: current.enabled,
@@ -179,7 +208,7 @@ final class ScriptStrippingManager {
         }
     }
 
-    func setRuleEnabled(_ enabled: Bool, identifier: String, forHost host: String) {
+    public func setRuleEnabled(_ enabled: Bool, identifier: String, forHost host: String) {
         updateHost(host) { current in
             let rules = current.rules.map { rule in
                 guard rule.identifier == identifier else { return rule }
@@ -248,8 +277,8 @@ final class ScriptStrippingManager {
     }
 }
 
-final class ScriptBlocklistManager {
-    static let shared = ScriptBlocklistManager()
+public final class ScriptBlocklistManager {
+    public static let shared = ScriptBlocklistManager()
 
     private let defaults = UserDefaults(suiteName: Constants.appGroupIdentifier)
     private let blocklistKey = Constants.ProxyKeys.scriptBlocklistKey
@@ -264,31 +293,31 @@ final class ScriptBlocklistManager {
 
     private init() {}
 
-    func fetchEnabledPatterns() -> [String] {
+    public func fetchEnabledPatterns() -> [String] {
         return loadEntries().filter { $0.enabled }.map { $0.domainPattern }
     }
 
-    func fetchStripEnabledHosts() -> Set<String> {
+    public func fetchStripEnabledHosts() -> Set<String> {
         return Set(ScriptStrippingManager.shared.fetchEnabledHosts().map(\.host))
     }
 
-    func fetchAllEntries() -> [BlocklistEntry] {
+    public func fetchAllEntries() -> [BlocklistEntry] {
         return loadEntries()
     }
 
-    func addEntry(_ entry: BlocklistEntry) {
+    public func addEntry(_ entry: BlocklistEntry) {
         var entries = loadEntries()
         entries.append(entry)
         saveEntries(entries)
     }
 
-    func removeEntry(identifier: String) {
+    public func removeEntry(identifier: String) {
         var entries = loadEntries()
         entries.removeAll { $0.identifier == identifier }
         saveEntries(entries)
     }
 
-    func updateEntry(identifier: String, enabled: Bool) {
+    public func updateEntry(identifier: String, enabled: Bool) {
         var entries = loadEntries()
         if let index = entries.index(where: { $0.identifier == identifier }) {
             let current = entries[index]
@@ -303,7 +332,7 @@ final class ScriptBlocklistManager {
         }
     }
 
-    func setStripEnabled(_ stripEnabled: Bool, forHost host: String) {
+    public func setStripEnabled(_ stripEnabled: Bool, forHost host: String) {
         var entries = loadEntries()
         if let index = entries.index(where: { $0.domainPattern == host }) {
             let current = entries[index]

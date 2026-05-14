@@ -5,6 +5,7 @@
 //
 
 import NetworkExtension
+import XavierShared
 
 class FilterDataProvider: NEFilterDataProvider {
     private let browserPeekBytes = 16 * 1024

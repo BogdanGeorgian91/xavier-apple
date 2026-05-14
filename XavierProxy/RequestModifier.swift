@@ -1,27 +1,34 @@
 import Foundation
 
-let maxModifiableRequestBodySize = 65536
-let requestBufferingTimeout: TimeInterval = 10.0
+public let maxModifiableRequestBodySize = 65536
+public let requestBufferingTimeout: TimeInterval = 10.0
 
-struct RequestModification {
-    let modifiedHeaders: [String: String]?
-    let modifiedBody: Data?
-    let modifiedURL: String?
-    let wasModified: Bool
+public struct RequestModification {
+    public let modifiedHeaders: [String: String]?
+    public let modifiedBody: Data?
+    public let modifiedURL: String?
+    public let wasModified: Bool
+
+    public init(modifiedHeaders: [String: String]?, modifiedBody: Data?, modifiedURL: String?, wasModified: Bool) {
+        self.modifiedHeaders = modifiedHeaders
+        self.modifiedBody = modifiedBody
+        self.modifiedURL = modifiedURL
+        self.wasModified = wasModified
+    }
 }
 
-enum RequestHandlingPath {
+public enum RequestHandlingPath {
     case streamThrough(metadata: HTTPRequestMetadata, capturedBodySoFar: Data?)
     case bufferAndModify(metadata: HTTPRequestMetadata,
                          originalBody: Data,
                          modifications: RequestModification)
 }
 
-final class RequestModifier {
-    static func handlingPath(requestHeaders: HTTPRequestMetadata,
-                             host: String,
-                             bodySize: Int?,
-                             rules: [ModificationRule]) -> RequestHandlingPath {
+public final class RequestModifier {
+    public static func handlingPath(requestHeaders: HTTPRequestMetadata,
+                                    host: String,
+                                    bodySize: Int?,
+                                    rules: [ModificationRule]) -> RequestHandlingPath {
         let matchingRules = rules.filter { $0.host == host || $0.host == "*" }
 
         guard !matchingRules.isEmpty else {
@@ -53,10 +60,10 @@ final class RequestModifier {
         return .streamThrough(metadata: requestHeaders, capturedBodySoFar: nil)
     }
 
-    static func modifyRequest(request: HTTPRequestMetadata,
-                               originalBody: Data?,
-                               host: String,
-                               rules: [ModificationRule]) -> RequestModification {
+    public static func modifyRequest(request: HTTPRequestMetadata,
+                                     originalBody: Data?,
+                                     host: String,
+                                     rules: [ModificationRule]) -> RequestModification {
         var modifiedHeaders = request.headers
         var modifiedBody = originalBody
         var modifiedURL: String? = nil
@@ -104,9 +111,9 @@ final class RequestModifier {
         )
     }
 
-    static func rebuildRequest(original: HTTPRequestMetadata,
-                                modification: RequestModification,
-                                body: Data?) -> Data {
+    public static func rebuildRequest(original: HTTPRequestMetadata,
+                                      modification: RequestModification,
+                                      body: Data?) -> Data {
         let url = modification.modifiedURL ?? original.url
         let headers = modification.modifiedHeaders ?? original.headers
         let effectiveBody = modification.modifiedBody ?? body

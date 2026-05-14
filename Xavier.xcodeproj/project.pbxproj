@@ -7,88 +7,103 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F0A00002268F000100000001 /* NetworkEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00001268F000100000001 /* NetworkEventManager.swift */; };
-		F0A00003268F000100000001 /* NetworkEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00001268F000100000001 /* NetworkEventManager.swift */; };
-		F0A00004268F000100000001 /* NetworkEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00001268F000100000001 /* NetworkEventManager.swift */; };
-		F0A00007268F000100000001 /* NetworkEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00005268F000100000001 /* NetworkEvent+CoreDataClass.swift */; };
-		F0A00008268F000100000001 /* NetworkEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00005268F000100000001 /* NetworkEvent+CoreDataClass.swift */; };
-		F0A00009268F000100000001 /* NetworkEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00005268F000100000001 /* NetworkEvent+CoreDataClass.swift */; };
-		F0A00010268F000100000001 /* NetworkEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00006268F000100000001 /* NetworkEvent+CoreDataProperties.swift */; };
-		F0A00011268F000100000001 /* NetworkEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00006268F000100000001 /* NetworkEvent+CoreDataProperties.swift */; };
-		F0A00012268F000100000001 /* NetworkEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00006268F000100000001 /* NetworkEvent+CoreDataProperties.swift */; };
+		08A7C7A069F471939A216756 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC815BFEA146700A8D53056 /* Rule.swift */; };
+		0B5C70D7DBEB7546AD98CC95 /* XavierDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5BB1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld */; };
+		0E413F171A6109BF780611AD /* TransparentProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1858EF1416B7CBB4C6AC03 /* TransparentProxyProvider.swift */; };
+		0FA48FE8E97C366CF3A4F790 /* InspectionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F41000411A00000000000001 /* InspectionModel.xcdatamodeld */; };
+		13061AC561121BD0FB0FEAAB /* InspectedRequest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70655927A29080FABC2F4547 /* InspectedRequest+CoreDataProperties.swift */; };
+		2287038F44050BAF5AD803F3 /* BrowserEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8361DAD50319674EA2389 /* BrowserEventManager.swift */; };
+		2424928EAB7297B7BF0B90A7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA2F55E1FEEF36E00FA15C4 /* NetworkExtension.framework */; };
+		25201C3755DF495D599CB31F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CE617ADFFD38D1D4F2C391 /* Security.framework */; };
+		2B38ACA5D96CCF91EAB9FE8F /* XavierShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		372B95081A515CF044DA080C /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
+		39170240993FF09F295CE232 /* NetworkEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FAD2CB092422D11F59EFF2 /* NetworkEventManager.swift */; };
+		4167B895BEDA02E6B23BB8AD /* BlocklistMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85002F00C4F760FC3609403 /* BlocklistMatcher.swift */; };
+		42B9A7AEFF475A42AB4E7517 /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
+		47C35555A06816A3341CBE03 /* XavierShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		47EFE9BBE4EB2252346F3808 /* HTTPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857BBEEF648925A8AD57A37 /* HTTPParser.swift */; };
+		47F1EC62291723B350425507 /* XavierMacAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2793338CD9D7CAA7AC96DE10 /* XavierMacAppDelegate.swift */; };
+		4B2B89075D6E7DF21C2F31A9 /* UnifiedNetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D680664D01A3016E71E03B2 /* UnifiedNetworkEvent.swift */; };
+		4E6C86F33A7B05120E5882A1 /* ResponseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953D2BF6722AB2B8B7C8DED1 /* ResponseModifier.swift */; };
+		500D218AE96951BFF97499BB /* XavierShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		532D43884363696B293A29D7 /* XavierShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53B32A2C8B15546EB5DBAED1 /* InspectionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E2555C264B0D2F4FEA01A2 /* InspectionPayload.swift */; };
+		54ED28647B0E281B8009CA36 /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
+		5880809E1C3B22A7BE4E4546 /* FlowCopyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3A8B605BFC54EBB504BCFA /* FlowCopyManager.swift */; };
+		5EB60A6596CB1BB5A4BF8973 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA9C1745FB0815C5EC9F88 /* SHA256.swift */; };
+		5F65A4FA967624D252792DE6 /* ScriptBlocklistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54ED8096C227959AE14A50 /* ScriptBlocklistManager.swift */; };
+		5FE83626F8D3D5323FEA408E /* FilterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA4741B05C7585EA8036ED /* FilterDataProvider.swift */; };
+		620B3DF7C31A2B826EA5FB74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDAA073E2D357D603E543D0 /* Foundation.framework */; };
+		6B90C47D66C0F14A1FBCC866 /* FlowMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C5D0C0B955C80133945E0 /* FlowMetadataProvider.swift */; };
+		6DB4713CEC6FCB5420475F88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBFC748DFDCC358414271A /* Constants.swift */; };
+		6FC7D48E1FF7E627E963F0B3 /* RuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5254A0C0424969803C48662B /* RuleManager.swift */; };
+		72991F973570B218DD335C1D /* CertificateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1969D9675D9945100A2742A /* CertificateManager.swift */; };
+		737E76D9477B0688F23147E8 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95631268ED3CA5F21AD400AB /* SidebarContentView.swift */; };
+		738C386868FAF4D8E6FD13A8 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA2F55E1FEEF36E00FA15C4 /* NetworkExtension.framework */; };
+		767CE895555C25ED210C9F23 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF26BC82110E91F35255245 /* MenuBarView.swift */; };
+		7C229B314513C6A9ED7D8ED2 /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725C44182349E08751AEB1F /* RequestModifier.swift */; };
+		7F7F509EB8D6F7E65E9F6AFF /* com.boogdan.xaviermac.proxy.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 7887D250DE25356F73AB6E5B /* com.boogdan.xaviermac.proxy.systemextension */; };
+		81CDCCC0634B2A95D43B12B9 /* NetworkEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D009298E2C19A24C1DD3620 /* NetworkEvent+CoreDataProperties.swift */; };
+		84C0F16DFE431C81B99D0F0D /* StaticRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C909E20620B9EC8512D18 /* StaticRules.swift */; };
+		88F9BA60BB8F967D03574B02 /* BundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A07A46109A75D3260475B0C /* BundleResolver.swift */; };
+		89403BE4B07FE988C7AF3057 /* IOSBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C23EFD378F387C33260C664 /* IOSBundleResolver.swift */; };
+		8A9025693C2872F8319554DC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06579812167145B5E5E3C0BB /* main.swift */; };
+		8B9D8AFD550F1D705EC933E1 /* TLSProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00F440ED8C051C805381F3 /* TLSProxy.swift */; };
+		8C92364827A429676D7C5082 /* XavierMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FDA255D36DCE5057EB897F /* XavierMacApp.swift */; };
+		8DAF375188D874D244A4BF8A /* MacOSBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECCA81847722D704949394 /* MacOSBundleResolver.swift */; };
+		9D339867485BB8DC15759B4E /* XavierShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A50F9B3681FD40749CF3BB95 /* com.boogdan.xaviermac.filter.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = DE623122E0D8EDB11E2654DE /* com.boogdan.xaviermac.filter.systemextension */; };
+		A8C045371419FFF6F027EC51 /* ModificationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438B80417CAF497C458E7FF /* ModificationRule.swift */; };
+		A963A23175F6BC79F75FCAB9 /* PlatformConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BC87B7B0AC3105087F85BB /* PlatformConstants.swift */; };
+		AD4E2F994BBA7F73FD4F53AD /* BrowserEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E01FBE3B1D6C26A47194 /* BrowserEvent+CoreDataProperties.swift */; };
+		AECE77A804828CD0FA36E661 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C3A1D0C113716DBA0215CD /* main.swift */; };
+		B603C9FF285A684F169EFB49 /* BrowserEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3DAD75FDF4704FA3D6EAE2 /* BrowserEvent+CoreDataClass.swift */; };
+		B99DD0C7611CB05637837B8E /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F26E1FF85A510042840D /* Flow.swift */; };
+		BCC93EB838530AC8D1D3DEE0 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F410000F1A00000000000001 /* Network.framework */; };
+		C251BD2F9EB22D39260D4532 /* UniqueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F604DFFCF011951934EF791 /* UniqueID.swift */; };
+		C2AE4796F5E0E3E17CCD592D /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA2F55E1FEEF36E00FA15C4 /* NetworkExtension.framework */; };
+		C6030A513184A19C791ECE8C /* X509 in Frameworks */ = {isa = PBXBuildFile; productRef = E90DA8426214EEB9B6311763 /* X509 */; };
+		D54A86FB3374C0DEE8938F25 /* NetworkEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D13E3C4F583EA8CDC255FDA /* NetworkEvent+CoreDataClass.swift */; };
+		E71A948CD09583B3F414C6B0 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA2F55E1FEEF36E00FA15C4 /* NetworkExtension.framework */; };
+		E96D47413D4F5D1AC1F68C13 /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
+		EE0C8B1779E6E38D70624C49 /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
+		EF04BD8C14A4E024045AB276 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDAA073E2D357D603E543D0 /* Foundation.framework */; };
+		F063B02B73084265056DEE5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDAA073E2D357D603E543D0 /* Foundation.framework */; };
 		F0A00014268F000100000001 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00013268F000100000001 /* MainTabBarController.swift */; };
 		F0A00016268F000100000001 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00015268F000100000001 /* DashboardViewController.swift */; };
 		F0A00018268F000100000001 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A00017268F000100000001 /* AppDetailViewController.swift */; };
+		F1A3C50E2F96E4DCAE847B60 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B2B844EEB60FFA158F39021 /* CoreData.framework */; };
+		F1F063348536F9A12BC5927B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDAA073E2D357D603E543D0 /* Foundation.framework */; };
 		F20601E829562DE7005A311D /* Xavier/Controllers/RuleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20601E729562DE7005A311D /* Xavier/Controllers/RuleDetailViewController.swift */; };
 		F20601E829562DE7005A322D /* Xavier/Controllers/AppRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20601E729562DE7005A322D /* Xavier/Controllers/AppRulesViewController.swift */; };
-		F300000129562DE700000002 /* BrowserEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000001 /* BrowserEvent+CoreDataClass.swift */; };
-		F300000129562DE700000003 /* BrowserEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000001 /* BrowserEvent+CoreDataClass.swift */; };
-		F300000129562DE700000005 /* BrowserEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000004 /* BrowserEvent+CoreDataProperties.swift */; };
-		F300000129562DE700000006 /* BrowserEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000004 /* BrowserEvent+CoreDataProperties.swift */; };
-		F300000129562DE700000008 /* BrowserFlowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000007 /* BrowserFlowPayload.swift */; };
-		F300000129562DE700000009 /* BrowserFlowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000007 /* BrowserFlowPayload.swift */; };
-		F300000129562DE70000000A /* BrowserFlowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000007 /* BrowserFlowPayload.swift */; };
-		F300000129562DE70000000C /* BrowserEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE70000000B /* BrowserEventManager.swift */; };
-		F300000129562DE70000000D /* BrowserEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE70000000B /* BrowserEventManager.swift */; };
+		F228ABB7EF831B92634915E9 /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
 		F300000129562DE70000000F /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE70000000E /* BrowserViewController.swift */; };
 		F300000129562DE700000011 /* WebsiteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000010 /* WebsiteDetailViewController.swift */; };
 		F300000129562DE700000013 /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000012 /* RequestDetailViewController.swift */; };
-		F300000129562DE700000014 /* BrowserEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000001 /* BrowserEvent+CoreDataClass.swift */; };
-		F300000129562DE700000015 /* BrowserEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000004 /* BrowserEvent+CoreDataProperties.swift */; };
-		F300000129562DE700000016 /* BrowserEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE70000000B /* BrowserEventManager.swift */; };
 		F300000129562DE700000018 /* AppHostActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000017 /* AppHostActivityViewController.swift */; };
-		F300000129562DE700000020 /* UnifiedNetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000021 /* UnifiedNetworkEvent.swift */; };
-		F300000129562DE700000022 /* UnifiedNetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000021 /* UnifiedNetworkEvent.swift */; };
-		F300000129562DE700000023 /* UnifiedNetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300000129562DE700000021 /* UnifiedNetworkEvent.swift */; };
+		F32E1141409E2583FEF84022 /* XavierShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */; };
 		F410000A1A00000000000001 /* XavierProxy.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F41000041A00000000000001 /* XavierProxy.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F410000B1A00000000000001 /* AppProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000081A00000000000001 /* AppProxyProvider.swift */; };
-		F410000C1A00000000000001 /* FlowCopyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000091A00000000000001 /* FlowCopyManager.swift */; };
-		F410000D1A00000000000001 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C41FEF6FD100FA15C4 /* Constants.swift */; };
 		F410000E1A00000000000001 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000131A00000000000001 /* ProxyManager.swift */; };
 		F41000101A00000000000001 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA2F55E1FEEF36E00FA15C4 /* NetworkExtension.framework */; };
 		F41000111A00000000000001 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F410000F1A00000000000001 /* Network.framework */; };
-		F41000191A00000000000001 /* X509 in Frameworks */ = {isa = PBXBuildFile; productRef = F410001C1A00000000000001 /* X509 */; };
-		F410001D1A00000000000001 /* X509 in Frameworks */ = {isa = PBXBuildFile; productRef = F410001E1A00000000000001 /* X509 */; };
-		F41000201A00000000000001 /* CertificateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000241A00000000000001 /* CertificateManager.swift */; };
-		F41000211A00000000000001 /* TLSProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000251A00000000000001 /* TLSProxy.swift */; };
 		F41000221A00000000000001 /* CAStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000261A00000000000001 /* CAStatusChecker.swift */; };
 		F41000231A00000000000001 /* CertificateExportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000271A00000000000001 /* CertificateExportHelper.swift */; };
-		F41000281A00000000000001 /* CertificateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000241A00000000000001 /* CertificateManager.swift */; };
-		F41000291A00000000000001 /* InspectedRequest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000331A00000000000001 /* InspectedRequest+CoreDataClass.swift */; };
-		F410002A1A00000000000001 /* InspectedRequest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000341A00000000000001 /* InspectedRequest+CoreDataProperties.swift */; };
-		F410002B1A00000000000001 /* InspectionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000351A00000000000001 /* InspectionPayload.swift */; };
-		F410002C1A00000000000001 /* InspectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000361A00000000000001 /* InspectionManager.swift */; };
-		F410002D1A00000000000001 /* ScriptBlocklistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000371A00000000000001 /* ScriptBlocklistManager.swift */; };
-		F410002E1A00000000000001 /* BlocklistMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000381A00000000000001 /* BlocklistMatcher.swift */; };
 		F410002F1A00000000000001 /* InspectorSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000391A00000000000001 /* InspectorSetupViewController.swift */; };
 		F41000301A00000000000001 /* InspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410003A1A00000000000001 /* InspectorViewController.swift */; };
 		F41000311A00000000000001 /* InspectorHostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410003B1A00000000000001 /* InspectorHostDetailViewController.swift */; };
 		F41000321A00000000000001 /* InspectorRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410003C1A00000000000001 /* InspectorRequestDetailViewController.swift */; };
 		F410003D1A00000000000001 /* BlocklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410003F1A00000000000001 /* BlocklistViewController.swift */; };
 		F410003E1A00000000000001 /* StripScriptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000401A00000000000001 /* StripScriptsViewController.swift */; };
-		F41000431A00000000000001 /* InspectionModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = F41000411A00000000000001 /* InspectionModel.xcdatamodeld */; };
-		F41000441A00000000000001 /* InspectionModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = F41000411A00000000000001 /* InspectionModel.xcdatamodeld */; };
-		F41000451A00000000000001 /* ScriptBlocklistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000371A00000000000001 /* ScriptBlocklistManager.swift */; };
-		F410004D1A00000000000001 /* ModificationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410004C1A00000000000001 /* ModificationRule.swift */; };
 		F41000501A00000000000001 /* ModificationRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410004F1A00000000000001 /* ModificationRulesViewController.swift */; };
-		F41000521A00000000000001 /* HTTPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000461A00000000000001 /* HTTPParser.swift */; };
-		F41000531A00000000000001 /* ResponseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000481A00000000000001 /* ResponseModifier.swift */; };
-		F41000541A00000000000001 /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410004A1A00000000000001 /* RequestModifier.swift */; };
-		F41000551A00000000000001 /* ModificationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410004C1A00000000000001 /* ModificationRule.swift */; };
-		F41000561A00000000000001 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5B51FEF071100FA15C4 /* Rule.swift */; };
-		F41000571A00000000000001 /* InspectionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000351A00000000000001 /* InspectionPayload.swift */; };
-		F41000581A00000000000001 /* InspectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000361A00000000000001 /* InspectionManager.swift */; };
-		F41000591A00000000000001 /* InspectedRequest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000331A00000000000001 /* InspectedRequest+CoreDataClass.swift */; };
-		F41000601A00000000000001 /* InspectedRequest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000341A00000000000001 /* InspectedRequest+CoreDataProperties.swift */; };
 		F41000611A00000000000001 /* InspectorSiteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41000621A00000000000001 /* InspectorSiteDetailViewController.swift */; };
-		FA0A6B2B20C4A41A00222EF2 /* StaticRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDA3CA1FFEE8B90077C681 /* StaticRules.swift */; };
-		FA0A6B2D20C4A41C00222EF2 /* StaticRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDA3CA1FFEE8B90077C681 /* StaticRules.swift */; };
+		F558DBA1EB4A0DEED25332DE /* InspectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D97412CA9498A017FF4AD03 /* InspectionManager.swift */; };
+		F596429C7B2609902A436B5B /* InspectedRequest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CDE7738B4EF8045F3DC1A2 /* InspectedRequest+CoreDataClass.swift */; };
+		F6158AA531F5DA532129DB63 /* FrameworkBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F503C47614AB72E981966 /* FrameworkBundleResolver.swift */; };
+		F9F65B32C86B265C95C36CE8 /* BrowserFlowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA887C3D84F7B910470482DD /* BrowserFlowPayload.swift */; };
 		FA68F2661FF84C520042840D /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F2651FF84C520042840D /* Mutex.swift */; };
 		FA68F2671FF84C520042840D /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F2651FF84C520042840D /* Mutex.swift */; };
 		FA68F2681FF84C520042840D /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F2651FF84C520042840D /* Mutex.swift */; };
-		FA68F26F1FF85A510042840D /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F26E1FF85A510042840D /* Flow.swift */; };
-		FA68F2701FF85A510042840D /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F26E1FF85A510042840D /* Flow.swift */; };
-		FA68F2711FF85A510042840D /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F26E1FF85A510042840D /* Flow.swift */; };
 		FA98E6BD20C637C20010643C /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98E6BC20C637C20010643C /* AboutController.swift */; };
 		FAA2F5451FEEF25B00FA15C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5441FEEF25B00FA15C4 /* AppDelegate.swift */; };
 		FAA2F5471FEEF25B00FA15C4 /* FilterSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5461FEEF25B00FA15C4 /* FilterSettingsController.swift */; };
@@ -108,33 +123,69 @@
 		FAA2F5A41FEEF7F700FA15C4 /* FiraSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA2F58D1FEEF7F700FA15C4 /* FiraSans-Medium.ttf */; };
 		FAA2F5A61FEEF7F700FA15C4 /* FiraSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA2F58F1FEEF7F700FA15C4 /* FiraSans-Bold.ttf */; };
 		FAA2F5B21FEEF7F700FA15C4 /* FiraSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA2F59B1FEEF7F700FA15C4 /* FiraSans-Regular.ttf */; };
-		FAA2F5B61FEF071100FA15C4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5B51FEF071100FA15C4 /* Rule.swift */; };
-		FAA2F5B71FEF071100FA15C4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5B51FEF071100FA15C4 /* Rule.swift */; };
-		FAA2F5B81FEF071100FA15C4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5B51FEF071100FA15C4 /* Rule.swift */; };
 		FAA2F5BA1FEF0FB700FA15C4 /* UIViewController+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5B91FEF0FB700FA15C4 /* UIViewController+Util.swift */; };
-		FAA2F5BD1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5BB1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld */; };
-		FAA2F5BE1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5BB1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld */; };
-		FAA2F5BF1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5BB1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld */; };
-		FAA2F5C11FEF1CA100FA15C4 /* RuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C01FEF1CA100FA15C4 /* RuleManager.swift */; };
-		FAA2F5C21FEF1CA100FA15C4 /* RuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C01FEF1CA100FA15C4 /* RuleManager.swift */; };
-		FAA2F5C31FEF1CA100FA15C4 /* RuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C01FEF1CA100FA15C4 /* RuleManager.swift */; };
-		FAA2F5C51FEF6FD100FA15C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C41FEF6FD100FA15C4 /* Constants.swift */; };
-		FAA2F5C61FEF6FD100FA15C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C41FEF6FD100FA15C4 /* Constants.swift */; };
-		FAA2F5C71FEF6FD100FA15C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C41FEF6FD100FA15C4 /* Constants.swift */; };
-		FAA2F5C91FEF704900FA15C4 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C81FEF704900FA15C4 /* SHA256.swift */; };
-		FAA2F5CA1FEF704900FA15C4 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C81FEF704900FA15C4 /* SHA256.swift */; };
-		FAA2F5CB1FEF704900FA15C4 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5C81FEF704900FA15C4 /* SHA256.swift */; };
-		FAA2F5D21FEF71B000FA15C4 /* UniqueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5D11FEF71B000FA15C4 /* UniqueID.swift */; };
-		FAA2F5D31FEF71B000FA15C4 /* UniqueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5D11FEF71B000FA15C4 /* UniqueID.swift */; };
-		FAA2F5D41FEF71B000FA15C4 /* UniqueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5D11FEF71B000FA15C4 /* UniqueID.swift */; };
 		FAA2F5D61FEF738C00FA15C4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5D51FEF738C00FA15C4 /* Notification.swift */; };
 		FAA2F5FC1FF569DB00FA15C4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2F5FB1FF569DB00FA15C4 /* Resources.swift */; };
-		
 		FABDA3C91FFEE1940077C681 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDA3C81FFEE1940077C681 /* OnboardingController.swift */; };
-		FABDA3CB1FFEE8B90077C681 /* StaticRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDA3CA1FFEE8B90077C681 /* StaticRules.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2009CCF98CD2987BD10DD482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
+		24B2F195254E758F213D05FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
+		5B79243AD4DA1353550BD1F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
+		A9F3750E3A2E63FFB18BB714 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6B61588E55ACFD5284496ED;
+			remoteInfo = XavierMacFilterExtension;
+		};
+		C1731DF29E57E9C41F205E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
+		C6BB3F58C026E132854B1774 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE66F939FD95E63327DC60C;
+			remoteInfo = XavierMacProxyExtension;
+		};
+		D648D91AF05AFBA075D554CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
+		E190CDB8D2C496E8A1C69BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
 		F41000121A00000000000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
@@ -156,10 +207,83 @@
 			remoteGlobalIDString = FAA2F5751FEEF53000FA15C4;
 			remoteInfo = XavierControl;
 		};
-		
+		FB6BD2BAA259ECAF4F9BB5BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAA2F5391FEEF25B00FA15C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D299D8285E7E088032B2E12E;
+			remoteInfo = XavierShared;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		247549561D0B48ACA0588F16 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D339867485BB8DC15759B4E /* XavierShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F3FE235AB3FF2D8A891C5F2 /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A50F9B3681FD40749CF3BB95 /* com.boogdan.xaviermac.filter.systemextension in Embed System Extensions */,
+				7F7F509EB8D6F7E65E9F6AFF /* com.boogdan.xaviermac.proxy.systemextension in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D42AF9C11F785067090179F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				532D43884363696B293A29D7 /* XavierShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BF798C117C653AEFB45984 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				47C35555A06816A3341CBE03 /* XavierShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B4E79FFB8D5828FEEA3D4AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2B38ACA5D96CCF91EAB9FE8F /* XavierShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A94FB882E00F11F0AE204444 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				500D218AE96951BFF97499BB /* XavierShared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAA2F5701FEEF51200FA15C4 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,14 +297,56 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06579812167145B5E5E3C0BB /* main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		071CEE0B4073B37157FF710D /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0725C44182349E08751AEB1F /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = ../XavierProxy/RequestModifier.swift; sourceTree = "<group>"; };
+		09B8361DAD50319674EA2389 /* BrowserEventManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BrowserEventManager.swift; path = ../Xavier/Core/BrowserEventManager.swift; sourceTree = "<group>"; };
+		0C23EFD378F387C33260C664 /* IOSBundleResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IOSBundleResolver.swift; sourceTree = "<group>"; };
+		1D13E3C4F583EA8CDC255FDA /* NetworkEvent+CoreDataClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetworkEvent+CoreDataClass.swift"; path = "../Xavier/Core/NetworkEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1D97412CA9498A017FF4AD03 /* InspectionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InspectionManager.swift; path = ../Xavier/Core/InspectionManager.swift; sourceTree = "<group>"; };
+		2793338CD9D7CAA7AC96DE10 /* XavierMacAppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XavierMacAppDelegate.swift; sourceTree = "<group>"; };
+		2FEA9C1745FB0815C5EC9F88 /* SHA256.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SHA256.swift; path = ../Xavier/Core/SHA256.swift; sourceTree = "<group>"; };
+		34C3A1D0C113716DBA0215CD /* main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		38E722BACA7785CB4F494DEF /* AppProxyProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppProxyProvider.swift; path = ../XavierProxy/AppProxyProvider.swift; sourceTree = "<group>"; };
+		49EA4741B05C7585EA8036ED /* FilterDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterDataProvider.swift; sourceTree = "<group>"; };
+		5254A0C0424969803C48662B /* RuleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleManager.swift; path = ../Xavier/RuleManager.swift; sourceTree = "<group>"; };
+		55CDE7738B4EF8045F3DC1A2 /* InspectedRequest+CoreDataClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "InspectedRequest+CoreDataClass.swift"; path = "../Xavier/Core/InspectedRequest+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F604DFFCF011951934EF791 /* UniqueID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UniqueID.swift; path = ../Xavier/Core/UniqueID.swift; sourceTree = "<group>"; };
+		6D009298E2C19A24C1DD3620 /* NetworkEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetworkEvent+CoreDataProperties.swift"; path = "../Xavier/Core/NetworkEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		70655927A29080FABC2F4547 /* InspectedRequest+CoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "InspectedRequest+CoreDataProperties.swift"; path = "../Xavier/Core/InspectedRequest+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7887D250DE25356F73AB6E5B /* com.boogdan.xaviermac.proxy.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = com.boogdan.xaviermac.proxy.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B2B844EEB60FFA158F39021 /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8A07A46109A75D3260475B0C /* BundleResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BundleResolver.swift; sourceTree = "<group>"; };
+		8D680664D01A3016E71E03B2 /* UnifiedNetworkEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnifiedNetworkEvent.swift; path = ../Xavier/Core/UnifiedNetworkEvent.swift; sourceTree = "<group>"; };
+		8E1858EF1416B7CBB4C6AC03 /* TransparentProxyProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransparentProxyProvider.swift; sourceTree = "<group>"; };
+		8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XavierShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		953D2BF6722AB2B8B7C8DED1 /* ResponseModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseModifier.swift; path = ../XavierProxy/ResponseModifier.swift; sourceTree = "<group>"; };
+		95631268ED3CA5F21AD400AB /* SidebarContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
+		997C5D0C0B955C80133945E0 /* FlowMetadataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlowMetadataProvider.swift; sourceTree = "<group>"; };
+		9BEBFC748DFDCC358414271A /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Xavier/Constants.swift; sourceTree = "<group>"; };
+		A83F503C47614AB72E981966 /* FrameworkBundleResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrameworkBundleResolver.swift; sourceTree = "<group>"; };
+		AD3DAD75FDF4704FA3D6EAE2 /* BrowserEvent+CoreDataClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BrowserEvent+CoreDataClass.swift"; path = "../Xavier/Core/BrowserEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1BC87B7B0AC3105087F85BB /* PlatformConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlatformConstants.swift; sourceTree = "<group>"; };
+		B3ECCA81847722D704949394 /* MacOSBundleResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MacOSBundleResolver.swift; sourceTree = "<group>"; };
+		B7FAD2CB092422D11F59EFF2 /* NetworkEventManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkEventManager.swift; path = ../Xavier/Core/NetworkEventManager.swift; sourceTree = "<group>"; };
+		BBF26BC82110E91F35255245 /* MenuBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		C0A0000129562DE700000001 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		C0A0000229562DE700000001 /* Local.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig.example; sourceTree = "<group>"; };
 		C0A0000329562DE700000001 /* NETestAppMapping.local.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NETestAppMapping.local.plist.example; sourceTree = "<group>"; };
 		C0A0000429562DE700000001 /* merge-local-app-mapping.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "merge-local-app-mapping.sh"; sourceTree = "<group>"; };
+		C0FDA255D36DCE5057EB897F /* XavierMacApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XavierMacApp.swift; sourceTree = "<group>"; };
+		C438B80417CAF497C458E7FF /* ModificationRule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModificationRule.swift; path = ../Xavier/Core/ModificationRule.swift; sourceTree = "<group>"; };
+		CA887C3D84F7B910470482DD /* BrowserFlowPayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BrowserFlowPayload.swift; path = ../Xavier/Core/BrowserFlowPayload.swift; sourceTree = "<group>"; };
+		D163E01FBE3B1D6C26A47194 /* BrowserEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BrowserEvent+CoreDataProperties.swift"; path = "../Xavier/Core/BrowserEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1969D9675D9945100A2742A /* CertificateManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CertificateManager.swift; path = ../XavierProxy/CertificateManager.swift; sourceTree = "<group>"; };
+		D85002F00C4F760FC3609403 /* BlocklistMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklistMatcher.swift; path = ../XavierProxy/BlocklistMatcher.swift; sourceTree = "<group>"; };
+		DDDAA073E2D357D603E543D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DE54ED8096C227959AE14A50 /* ScriptBlocklistManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScriptBlocklistManager.swift; path = ../Xavier/Core/ScriptBlocklistManager.swift; sourceTree = "<group>"; };
+		DE623122E0D8EDB11E2654DE /* com.boogdan.xaviermac.filter.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = com.boogdan.xaviermac.filter.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2CE617ADFFD38D1D4F2C391 /* Security.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F0A00001268F000100000001 /* NetworkEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEventManager.swift; sourceTree = "<group>"; };
 		F0A00005268F000100000001 /* NetworkEvent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F0A00006268F000100000001 /* NetworkEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -228,6 +394,9 @@
 		F410004C1A00000000000001 /* ModificationRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificationRule.swift; sourceTree = "<group>"; };
 		F410004F1A00000000000001 /* ModificationRulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificationRulesViewController.swift; sourceTree = "<group>"; };
 		F41000621A00000000000001 /* InspectorSiteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorSiteDetailViewController.swift; sourceTree = "<group>"; };
+		F49C909E20620B9EC8512D18 /* StaticRules.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StaticRules.swift; path = ../Xavier/Core/StaticRules.swift; sourceTree = "<group>"; };
+		F7E2555C264B0D2F4FEA01A2 /* InspectionPayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InspectionPayload.swift; path = ../Xavier/Core/InspectionPayload.swift; sourceTree = "<group>"; };
+		F857BBEEF648925A8AD57A37 /* HTTPParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPParser.swift; path = ../XavierProxy/HTTPParser.swift; sourceTree = "<group>"; };
 		FA68F2651FF84C520042840D /* Mutex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
 		FA68F26E1FF85A510042840D /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		FA98E6BC20C637C20010643C /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
@@ -267,19 +436,64 @@
 		FAA2F5DE1FF48E9500FA15C4 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		FAA2F5E01FF48E9500FA15C4 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		FAA2F5FB1FF569DB00FA15C4 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
-		
 		FABDA3C81FFEE1940077C681 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		FABDA3CA1FFEE8B90077C681 /* StaticRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticRules.swift; sourceTree = "<group>"; };
+		FF00F440ED8C051C805381F3 /* TLSProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TLSProxy.swift; path = ../XavierProxy/TLSProxy.swift; sourceTree = "<group>"; };
+		FF3A8B605BFC54EBB504BCFA /* FlowCopyManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlowCopyManager.swift; path = ../XavierProxy/FlowCopyManager.swift; sourceTree = "<group>"; };
+		FFC815BFEA146700A8D53056 /* Rule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rule.swift; path = ../Xavier/Core/Rule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6036CFC6EF1E575BEEFBAAB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF04BD8C14A4E024045AB276 /* Foundation.framework in Frameworks */,
+				C6030A513184A19C791ECE8C /* X509 in Frameworks */,
+				738C386868FAF4D8E6FD13A8 /* NetworkExtension.framework in Frameworks */,
+				F1A3C50E2F96E4DCAE847B60 /* CoreData.framework in Frameworks */,
+				25201C3755DF495D599CB31F /* Security.framework in Frameworks */,
+				BCC93EB838530AC8D1D3DEE0 /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ADEE693CB68335C7C28341A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				620B3DF7C31A2B826EA5FB74 /* Foundation.framework in Frameworks */,
+				2424928EAB7297B7BF0B90A7 /* NetworkExtension.framework in Frameworks */,
+				E96D47413D4F5D1AC1F68C13 /* XavierShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FE607FC378BCEE676925559 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F063B02B73084265056DEE5A /* Foundation.framework in Frameworks */,
+				E71A948CD09583B3F414C6B0 /* NetworkExtension.framework in Frameworks */,
+				42B9A7AEFF475A42AB4E7517 /* XavierShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAFED1EB951206F3C493FE53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F063348536F9A12BC5927B /* Foundation.framework in Frameworks */,
+				C2AE4796F5E0E3E17CCD592D /* NetworkExtension.framework in Frameworks */,
+				F32E1141409E2583FEF84022 /* XavierShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F41000141A00000000000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41000191A00000000000001 /* X509 in Frameworks */,
 				F41000111A00000000000001 /* Network.framework in Frameworks */,
 				F41000101A00000000000001 /* NetworkExtension.framework in Frameworks */,
+				54ED28647B0E281B8009CA36 /* XavierShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,8 +501,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F410001D1A00000000000001 /* X509 in Frameworks */,
 				FAA2F55F1FEEF36E00FA15C4 /* NetworkExtension.framework in Frameworks */,
+				F228ABB7EF831B92634915E9 /* XavierShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA2F5711FEEF51D00FA15C4 /* NetworkExtension.framework in Frameworks */,
+				EE0C8B1779E6E38D70624C49 /* XavierShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,12 +520,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA2F5821FEEF53C00FA15C4 /* NetworkExtension.framework in Frameworks */,
+				372B95081A515CF044DA080C /* XavierShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C361ED42F681406A8BFE146 /* XavierMacProxyExtension */ = {
+			isa = PBXGroup;
+			children = (
+				34C3A1D0C113716DBA0215CD /* main.swift */,
+				8E1858EF1416B7CBB4C6AC03 /* TransparentProxyProvider.swift */,
+			);
+			path = XavierMacProxyExtension;
+			sourceTree = "<group>";
+		};
+		11E14AD968A3190CEF485715 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B3ECCA81847722D704949394 /* MacOSBundleResolver.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1B6F7BFC6D7F1D972CED4355 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				8A07A46109A75D3260475B0C /* BundleResolver.swift */,
+				B1BC87B7B0AC3105087F85BB /* PlatformConstants.swift */,
+				997C5D0C0B955C80133945E0 /* FlowMetadataProvider.swift */,
+				A83F503C47614AB72E981966 /* FrameworkBundleResolver.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		439BF7A32FB1128400CF8AE5 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F20601E729562DE7005A311D /* Xavier/Controllers/RuleDetailViewController.swift */,
+				F20601E729562DE7005A322D /* Xavier/Controllers/AppRulesViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		594F16C1C7C2885FAA7349E9 /* XavierMac */ = {
+			isa = PBXGroup;
+			children = (
+				E365E00443D3DAAFBEF2083B /* Views */,
+				11E14AD968A3190CEF485715 /* Services */,
+				C0FDA255D36DCE5057EB897F /* XavierMacApp.swift */,
+				2793338CD9D7CAA7AC96DE10 /* XavierMacAppDelegate.swift */,
+			);
+			path = XavierMac;
+			sourceTree = "<group>";
+		};
+		AA871068D024E8B2D32CC1D5 /* XavierMacFilterExtension */ = {
+			isa = PBXGroup;
+			children = (
+				06579812167145B5E5E3C0BB /* main.swift */,
+				49EA4741B05C7585EA8036ED /* FilterDataProvider.swift */,
+			);
+			path = XavierMacFilterExtension;
+			sourceTree = "<group>";
+		};
 		C0A0000529562DE700000001 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,13 +602,65 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
-		439BF7A32FB1128400CF8AE5 /* Recovered References */ = {
+		C2E5A0DD7AA2CF1A83B77C97 /* XavierShared */ = {
 			isa = PBXGroup;
 			children = (
-				F20601E729562DE7005A311D /* Xavier/Controllers/RuleDetailViewController.swift */,
-				F20601E729562DE7005A322D /* Xavier/Controllers/AppRulesViewController.swift */,
+				1B6F7BFC6D7F1D972CED4355 /* Platform */,
+				FFC815BFEA146700A8D53056 /* Rule.swift */,
+				F49C909E20620B9EC8512D18 /* StaticRules.swift */,
+				2FEA9C1745FB0815C5EC9F88 /* SHA256.swift */,
+				5F604DFFCF011951934EF791 /* UniqueID.swift */,
+				5254A0C0424969803C48662B /* RuleManager.swift */,
+				B7FAD2CB092422D11F59EFF2 /* NetworkEventManager.swift */,
+				09B8361DAD50319674EA2389 /* BrowserEventManager.swift */,
+				1D97412CA9498A017FF4AD03 /* InspectionManager.swift */,
+				1D13E3C4F583EA8CDC255FDA /* NetworkEvent+CoreDataClass.swift */,
+				6D009298E2C19A24C1DD3620 /* NetworkEvent+CoreDataProperties.swift */,
+				AD3DAD75FDF4704FA3D6EAE2 /* BrowserEvent+CoreDataClass.swift */,
+				D163E01FBE3B1D6C26A47194 /* BrowserEvent+CoreDataProperties.swift */,
+				55CDE7738B4EF8045F3DC1A2 /* InspectedRequest+CoreDataClass.swift */,
+				70655927A29080FABC2F4547 /* InspectedRequest+CoreDataProperties.swift */,
+				CA887C3D84F7B910470482DD /* BrowserFlowPayload.swift */,
+				F7E2555C264B0D2F4FEA01A2 /* InspectionPayload.swift */,
+				8D680664D01A3016E71E03B2 /* UnifiedNetworkEvent.swift */,
+				38E722BACA7785CB4F494DEF /* AppProxyProvider.swift */,
+				FF3A8B605BFC54EBB504BCFA /* FlowCopyManager.swift */,
+				FF00F440ED8C051C805381F3 /* TLSProxy.swift */,
+				F857BBEEF648925A8AD57A37 /* HTTPParser.swift */,
+				0725C44182349E08751AEB1F /* RequestModifier.swift */,
+				953D2BF6722AB2B8B7C8DED1 /* ResponseModifier.swift */,
+				D85002F00C4F760FC3609403 /* BlocklistMatcher.swift */,
+				D1969D9675D9945100A2742A /* CertificateManager.swift */,
+				C438B80417CAF497C458E7FF /* ModificationRule.swift */,
+				DE54ED8096C227959AE14A50 /* ScriptBlocklistManager.swift */,
+				9BEBFC748DFDCC358414271A /* Constants.swift */,
 			);
-			name = "Recovered References";
+			path = XavierShared;
+			sourceTree = "<group>";
+		};
+		D57AEC146A049464DD69577D /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				0C23EFD378F387C33260C664 /* IOSBundleResolver.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		DEDC372723E64237ED6AC439 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA073E2D357D603E543D0 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E365E00443D3DAAFBEF2083B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95631268ED3CA5F21AD400AB /* SidebarContentView.swift */,
+				BBF26BC82110E91F35255245 /* MenuBarView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F41000051A00000000000001 /* XavierProxy */ = {
@@ -378,6 +703,10 @@
 				FAA2F5421FEEF25B00FA15C4 /* Products */,
 				FAA2F55D1FEEF36E00FA15C4 /* Frameworks */,
 				439BF7A32FB1128400CF8AE5 /* Recovered References */,
+				594F16C1C7C2885FAA7349E9 /* XavierMac */,
+				AA871068D024E8B2D32CC1D5 /* XavierMacFilterExtension */,
+				0C361ED42F681406A8BFE146 /* XavierMacProxyExtension */,
+				C2E5A0DD7AA2CF1A83B77C97 /* XavierShared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,6 +717,10 @@
 				FAA2F5641FEEF51100FA15C4 /* XavierData.appex */,
 				FAA2F5761FEEF53000FA15C4 /* XavierControl.appex */,
 				F41000041A00000000000001 /* XavierProxy.appex */,
+				071CEE0B4073B37157FF710D /* .app */,
+				DE623122E0D8EDB11E2654DE /* com.boogdan.xaviermac.filter.systemextension */,
+				7887D250DE25356F73AB6E5B /* com.boogdan.xaviermac.proxy.systemextension */,
+				8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -410,6 +743,7 @@
 				FAA2F5591FEEF2E800FA15C4 /* UX */,
 				FAA2F54E1FEEF25B00FA15C4 /* Assets.xcassets */,
 				FAA2F5831FEEF7D800FA15C4 /* Fonts */,
+				D57AEC146A049464DD69577D /* Platform */,
 			);
 			path = Xavier;
 			sourceTree = "<group>";
@@ -456,6 +790,9 @@
 				F410000F1A00000000000001 /* Network.framework */,
 				FAA2F5DE1FF48E9500FA15C4 /* UserNotifications.framework */,
 				FAA2F5E01FF48E9500FA15C4 /* UserNotificationsUI.framework */,
+				DEDC372723E64237ED6AC439 /* iOS */,
+				7B2B844EEB60FFA158F39021 /* CoreData.framework */,
+				E2CE617ADFFD38D1D4F2C391 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -531,17 +868,87 @@
 				FAA2F5D11FEF71B000FA15C4 /* UniqueID.swift */,
 				F300000129562DE700000021 /* UnifiedNetworkEvent.swift */,
 				FAA2F5C81FEF704900FA15C4 /* SHA256.swift */,
-				
 				FA68F26E1FF85A510042840D /* Flow.swift */,
 				FABDA3CA1FFEE8B90077C681 /* StaticRules.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		B396253820D672A217D4D1FA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		9A61CEF97B93DA907CD878F8 /* XavierMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F23D56D033185BF8C9C4ED /* Build configuration list for PBXNativeTarget "XavierMac" */;
+			buildPhases = (
+				B8EF9DCAA50D677067E89304 /* Sources */,
+				6FE607FC378BCEE676925559 /* Frameworks */,
+				9C0F82E34B294830D3839DCA /* Resources */,
+				2F3FE235AB3FF2D8A891C5F2 /* Embed System Extensions */,
+				A94FB882E00F11F0AE204444 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C90556D980C9C63D6705881E /* PBXTargetDependency */,
+				C6A3E01377328129CDC3D8A2 /* PBXTargetDependency */,
+				2DF1E902B22956965105B590 /* PBXTargetDependency */,
+			);
+			name = XavierMac;
+			productName = XavierMac;
+			productReference = 071CEE0B4073B37157FF710D /* .app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCE66F939FD95E63327DC60C /* XavierMacProxyExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DD693CD332E4625277BE025 /* Build configuration list for PBXNativeTarget "XavierMacProxyExtension" */;
+			buildPhases = (
+				9D97A0A18B807ACEABAF21DE /* Sources */,
+				EAFED1EB951206F3C493FE53 /* Frameworks */,
+				6F93E713BFD21E4A878D836C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82D1665279CBC33276D39644 /* PBXTargetDependency */,
+			);
+			name = XavierMacProxyExtension;
+			productName = XavierMacProxyExtension;
+			productReference = 7887D250DE25356F73AB6E5B /* com.boogdan.xaviermac.proxy.systemextension */;
+			productType = "com.apple.product-type.system-extension";
+		};
+		D299D8285E7E088032B2E12E /* XavierShared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADDECE3AB2B2FB62773FC835 /* Build configuration list for PBXNativeTarget "XavierShared" */;
+			buildPhases = (
+				B396253820D672A217D4D1FA /* Headers */,
+				C8B89B799DF51A8A9AA0CA28 /* Common Crypto */,
+				D62ACE7C1A0C55E78F54B617 /* Sources */,
+				6036CFC6EF1E575BEEFBAAB9 /* Frameworks */,
+				9B7D123AD6E662895EDBB455 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XavierShared;
+			packageProductDependencies = (
+				E90DA8426214EEB9B6311763 /* X509 */,
+			);
+			productName = XavierShared;
+			productReference = 8E72197CDDA4DA168C2AACB5 /* XavierShared.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		F41000001A00000000000001 /* XavierProxy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F41000011A00000000000001 /* Build configuration list for PBXNativeTarget "XavierProxy" */;
@@ -549,30 +956,46 @@
 				F41000161A00000000000001 /* Sources */,
 				F41000141A00000000000001 /* Frameworks */,
 				F41000171A00000000000001 /* Resources */,
+				8B4E79FFB8D5828FEEA3D4AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9EE65512E2CD1C1189480483 /* PBXTargetDependency */,
 			);
 			name = XavierProxy;
-			packageProductDependencies = (
-				F410001C1A00000000000001 /* X509 */,
-			);
 			productName = XavierProxy;
 			productReference = F41000041A00000000000001 /* XavierProxy.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		F6B61588E55ACFD5284496ED /* XavierMacFilterExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC45C3AA0C2D0DB6711D3775 /* Build configuration list for PBXNativeTarget "XavierMacFilterExtension" */;
+			buildPhases = (
+				206B38383571A9341934AEA8 /* Sources */,
+				6ADEE693CB68335C7C28341A /* Frameworks */,
+				64648643DCC9F9C74CCA2C52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEFF7D329D84014BC922773C /* PBXTargetDependency */,
+			);
+			name = XavierMacFilterExtension;
+			productName = XavierMacFilterExtension;
+			productReference = DE623122E0D8EDB11E2654DE /* com.boogdan.xaviermac.filter.systemextension */;
+			productType = "com.apple.product-type.system-extension";
 		};
 		FAA2F5401FEEF25B00FA15C4 /* Xavier */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA2F5561FEEF25B00FA15C4 /* Build configuration list for PBXNativeTarget "Xavier" */;
 			buildPhases = (
-				FAA2F5CC1FEF707100FA15C4 /* Common Crypto */,
 				FAA2F53D1FEEF25B00FA15C4 /* Sources */,
 				FAA2F53E1FEEF25B00FA15C4 /* Frameworks */,
 				FAA2F53F1FEEF25B00FA15C4 /* Resources */,
 				C0A0000729562DE700000001 /* Merge Local App Mapping */,
 				FAA2F5701FEEF51200FA15C4 /* Embed App Extensions */,
-				
+				247549561D0B48ACA0588F16 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -580,12 +1003,9 @@
 				FAA2F56B1FEEF51200FA15C4 /* PBXTargetDependency */,
 				FAA2F57D1FEEF53000FA15C4 /* PBXTargetDependency */,
 				F41000181A00000000000001 /* PBXTargetDependency */,
-				
+				278982D5B0F6FC59465F4848 /* PBXTargetDependency */,
 			);
 			name = Xavier;
-			packageProductDependencies = (
-				F410001E1A00000000000001 /* X509 */,
-			);
 			productName = Xavier;
 			productReference = FAA2F5411FEEF25B00FA15C4 /* Xavier.app */;
 			productType = "com.apple.product-type.application";
@@ -594,14 +1014,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA2F56D1FEEF51200FA15C4 /* Build configuration list for PBXNativeTarget "XavierData" */;
 			buildPhases = (
-				FAA2F5CD1FEF711900FA15C4 /* Common Crypto */,
 				FAA2F5601FEEF51100FA15C4 /* Sources */,
 				FAA2F5611FEEF51100FA15C4 /* Frameworks */,
 				FAA2F5621FEEF51100FA15C4 /* Resources */,
+				84BF798C117C653AEFB45984 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EA41788DEFCB3D9E79EB3A35 /* PBXTargetDependency */,
 			);
 			name = XavierData;
 			productName = XavierData;
@@ -612,14 +1033,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA2F57F1FEEF53100FA15C4 /* Build configuration list for PBXNativeTarget "XavierControl" */;
 			buildPhases = (
-				FAA2F5CE1FEF712800FA15C4 /* Common Crypto */,
 				FAA2F5721FEEF53000FA15C4 /* Sources */,
 				FAA2F5731FEEF53000FA15C4 /* Frameworks */,
 				FAA2F5741FEEF53000FA15C4 /* Resources */,
+				5D42AF9C11F785067090179F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				228AEE41B2EB847DF1C69807 /* PBXTargetDependency */,
 			);
 			name = XavierControl;
 			productName = XavierControl;
@@ -636,6 +1058,35 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Xavier;
 				TargetAttributes = {
+					9A61CEF97B93DA907CD878F8 = {
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.macOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.macOS = {
+								enabled = 1;
+							};
+							com.apple.SystemExtension.macOS = {
+								enabled = 1;
+							};
+						};
+					};
+					BCE66F939FD95E63327DC60C = {
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.macOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.macOS = {
+								enabled = 1;
+							};
+						};
+					};
 					F41000001A00000000000001 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -647,6 +1098,19 @@
 								enabled = 1;
 							};
 							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					F6B61588E55ACFD5284496ED = {
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.macOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.macOS = {
 								enabled = 1;
 							};
 						};
@@ -712,28 +1176,53 @@
 			);
 			productRefGroup = FAA2F5421FEEF25B00FA15C4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				FAA2F5401FEEF25B00FA15C4 /* Xavier */,
 				FAA2F5631FEEF51100FA15C4 /* XavierData */,
 				FAA2F5751FEEF53000FA15C4 /* XavierControl */,
 				F41000001A00000000000001 /* XavierProxy */,
+				9A61CEF97B93DA907CD878F8 /* XavierMac */,
+				F6B61588E55ACFD5284496ED /* XavierMacFilterExtension */,
+				BCE66F939FD95E63327DC60C /* XavierMacProxyExtension */,
+				D299D8285E7E088032B2E12E /* XavierShared */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
+		64648643DCC9F9C74CCA2C52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F93E713BFD21E4A878D836C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B7D123AD6E662895EDBB455 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C0F82E34B294830D3839DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F41000171A00000000000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41000441A00000000000001 /* InspectionModel.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +1230,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41000431A00000000000001 /* InspectionModel.xcdatamodeld in Resources */,
 				FAA2F5A01FEEF7F700FA15C4 /* FiraMono-Bold.ttf in Resources */,
 				FAA2F59D1FEEF7F700FA15C4 /* FiraMono-Medium.ttf in Resources */,
 				FAA2F5521FEEF25B00FA15C4 /* LaunchScreen.storyboard in Resources */,
@@ -786,42 +1274,18 @@
 			shellPath = /bin/sh;
 			shellScript = "sh \"${SRCROOT}/Scripts/merge-local-app-mapping.sh\"";
 		};
-		FAA2F5CC1FEF707100FA15C4 /* Common Crypto */ = {
+		C8B89B799DF51A8A9AA0CA28 /* Common Crypto */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "Common Crypto";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "modulesDirectory=$DERIVED_FILES_DIR/modules\nmodulesMap=$modulesDirectory/module.modulemap\nmodulesMapTemp=$modulesDirectory/module.modulemap.tmp\n\nmkdir -p \"$modulesDirectory\"\n\ncat > \"$modulesMapTemp\" << MAP\nmodule CommonCrypto [system] {\n    header \"$SDKROOT/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nMAP\n\ndiff \"$modulesMapTemp\" \"$modulesMap\" >/dev/null 2>/dev/null\nif [[ $? != 0 ]] ; then\nmv \"$modulesMapTemp\" \"$modulesMap\"\nelse\nrm \"$modulesMapTemp\"\nfi";
-		};
-		FAA2F5CD1FEF711900FA15C4 /* Common Crypto */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
 			name = "Common Crypto";
-			outputPaths = (
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "modulesDirectory=$DERIVED_FILES_DIR/modules\nmodulesMap=$modulesDirectory/module.modulemap\nmodulesMapTemp=$modulesDirectory/module.modulemap.tmp\n\nmkdir -p \"$modulesDirectory\"\n\ncat > \"$modulesMapTemp\" << MAP\nmodule CommonCrypto [system] {\n    header \"$SDKROOT/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nMAP\n\ndiff \"$modulesMapTemp\" \"$modulesMap\" >/dev/null 2>/dev/null\nif [[ $? != 0 ]] ; then\nmv \"$modulesMapTemp\" \"$modulesMap\"\nelse\nrm \"$modulesMapTemp\"\nfi";
-		};
-		FAA2F5CE1FEF712800FA15C4 /* Common Crypto */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Common Crypto";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,26 +1295,83 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		206B38383571A9341934AEA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A9025693C2872F8319554DC /* main.swift in Sources */,
+				5FE83626F8D3D5323FEA408E /* FilterDataProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D97A0A18B807ACEABAF21DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AECE77A804828CD0FA36E661 /* main.swift in Sources */,
+				0E413F171A6109BF780611AD /* TransparentProxyProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EF9DCAA50D677067E89304 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C92364827A429676D7C5082 /* XavierMacApp.swift in Sources */,
+				47F1EC62291723B350425507 /* XavierMacAppDelegate.swift in Sources */,
+				737E76D9477B0688F23147E8 /* SidebarContentView.swift in Sources */,
+				767CE895555C25ED210C9F23 /* MenuBarView.swift in Sources */,
+				8DAF375188D874D244A4BF8A /* MacOSBundleResolver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D62ACE7C1A0C55E78F54B617 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08A7C7A069F471939A216756 /* Rule.swift in Sources */,
+				84C0F16DFE431C81B99D0F0D /* StaticRules.swift in Sources */,
+				5EB60A6596CB1BB5A4BF8973 /* SHA256.swift in Sources */,
+				C251BD2F9EB22D39260D4532 /* UniqueID.swift in Sources */,
+				6FC7D48E1FF7E627E963F0B3 /* RuleManager.swift in Sources */,
+				39170240993FF09F295CE232 /* NetworkEventManager.swift in Sources */,
+				2287038F44050BAF5AD803F3 /* BrowserEventManager.swift in Sources */,
+				F558DBA1EB4A0DEED25332DE /* InspectionManager.swift in Sources */,
+				D54A86FB3374C0DEE8938F25 /* NetworkEvent+CoreDataClass.swift in Sources */,
+				81CDCCC0634B2A95D43B12B9 /* NetworkEvent+CoreDataProperties.swift in Sources */,
+				B603C9FF285A684F169EFB49 /* BrowserEvent+CoreDataClass.swift in Sources */,
+				AD4E2F994BBA7F73FD4F53AD /* BrowserEvent+CoreDataProperties.swift in Sources */,
+				F596429C7B2609902A436B5B /* InspectedRequest+CoreDataClass.swift in Sources */,
+				13061AC561121BD0FB0FEAAB /* InspectedRequest+CoreDataProperties.swift in Sources */,
+				F9F65B32C86B265C95C36CE8 /* BrowserFlowPayload.swift in Sources */,
+				53B32A2C8B15546EB5DBAED1 /* InspectionPayload.swift in Sources */,
+				4B2B89075D6E7DF21C2F31A9 /* UnifiedNetworkEvent.swift in Sources */,
+				5880809E1C3B22A7BE4E4546 /* FlowCopyManager.swift in Sources */,
+				8B9D8AFD550F1D705EC933E1 /* TLSProxy.swift in Sources */,
+				47EFE9BBE4EB2252346F3808 /* HTTPParser.swift in Sources */,
+				7C229B314513C6A9ED7D8ED2 /* RequestModifier.swift in Sources */,
+				4E6C86F33A7B05120E5882A1 /* ResponseModifier.swift in Sources */,
+				4167B895BEDA02E6B23BB8AD /* BlocklistMatcher.swift in Sources */,
+				72991F973570B218DD335C1D /* CertificateManager.swift in Sources */,
+				A8C045371419FFF6F027EC51 /* ModificationRule.swift in Sources */,
+				5F65A4FA967624D252792DE6 /* ScriptBlocklistManager.swift in Sources */,
+				6DB4713CEC6FCB5420475F88 /* Constants.swift in Sources */,
+				88F9BA60BB8F967D03574B02 /* BundleResolver.swift in Sources */,
+				A963A23175F6BC79F75FCAB9 /* PlatformConstants.swift in Sources */,
+				6B90C47D66C0F14A1FBCC866 /* FlowMetadataProvider.swift in Sources */,
+				F6158AA531F5DA532129DB63 /* FrameworkBundleResolver.swift in Sources */,
+				89403BE4B07FE988C7AF3057 /* IOSBundleResolver.swift in Sources */,
+				0FA48FE8E97C366CF3A4F790 /* InspectionModel.xcdatamodeld in Sources */,
+				0B5C70D7DBEB7546AD98CC95 /* XavierDataModel.xcdatamodeld in Sources */,
+				B99DD0C7611CB05637837B8E /* Flow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F41000161A00000000000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41000451A00000000000001 /* ScriptBlocklistManager.swift in Sources */,
-				F410002E1A00000000000001 /* BlocklistMatcher.swift in Sources */,
-				F410000D1A00000000000001 /* Constants.swift in Sources */,
-				F41000211A00000000000001 /* TLSProxy.swift in Sources */,
-				F41000281A00000000000001 /* CertificateManager.swift in Sources */,
-				F410000C1A00000000000001 /* FlowCopyManager.swift in Sources */,
 				F410000B1A00000000000001 /* AppProxyProvider.swift in Sources */,
-				F41000521A00000000000001 /* HTTPParser.swift in Sources */,
-				F41000531A00000000000001 /* ResponseModifier.swift in Sources */,
-				F41000541A00000000000001 /* RequestModifier.swift in Sources */,
-				F41000551A00000000000001 /* ModificationRule.swift in Sources */,
-				F41000561A00000000000001 /* Rule.swift in Sources */,
-				F41000571A00000000000001 /* InspectionPayload.swift in Sources */,
-				F41000581A00000000000001 /* InspectionManager.swift in Sources */,
-				F41000591A00000000000001 /* InspectedRequest+CoreDataClass.swift in Sources */,
-				F41000601A00000000000001 /* InspectedRequest+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,9 +1381,7 @@
 			files = (
 				F41000231A00000000000001 /* CertificateExportHelper.swift in Sources */,
 				F41000221A00000000000001 /* CAStatusChecker.swift in Sources */,
-				F41000201A00000000000001 /* CertificateManager.swift in Sources */,
 				F410003E1A00000000000001 /* StripScriptsViewController.swift in Sources */,
-				F410004D1A00000000000001 /* ModificationRule.swift in Sources */,
 				F41000501A00000000000001 /* ModificationRulesViewController.swift in Sources */,
 				F410003D1A00000000000001 /* BlocklistViewController.swift in Sources */,
 				F41000321A00000000000001 /* InspectorRequestDetailViewController.swift in Sources */,
@@ -870,40 +1389,18 @@
 				F41000611A00000000000001 /* InspectorSiteDetailViewController.swift in Sources */,
 				F41000301A00000000000001 /* InspectorViewController.swift in Sources */,
 				F410002F1A00000000000001 /* InspectorSetupViewController.swift in Sources */,
-				F410002D1A00000000000001 /* ScriptBlocklistManager.swift in Sources */,
-				F410002C1A00000000000001 /* InspectionManager.swift in Sources */,
-				F410002B1A00000000000001 /* InspectionPayload.swift in Sources */,
-				F410002A1A00000000000001 /* InspectedRequest+CoreDataProperties.swift in Sources */,
-				F41000291A00000000000001 /* InspectedRequest+CoreDataClass.swift in Sources */,
 				F300000129562DE700000018 /* AppHostActivityViewController.swift in Sources */,
-				F300000129562DE700000020 /* UnifiedNetworkEvent.swift in Sources */,
 				F300000129562DE700000013 /* RequestDetailViewController.swift in Sources */,
 				F300000129562DE700000011 /* WebsiteDetailViewController.swift in Sources */,
 				F300000129562DE70000000F /* BrowserViewController.swift in Sources */,
-				F300000129562DE70000000C /* BrowserEventManager.swift in Sources */,
-				F300000129562DE700000008 /* BrowserFlowPayload.swift in Sources */,
-				F300000129562DE700000005 /* BrowserEvent+CoreDataProperties.swift in Sources */,
-				F300000129562DE700000002 /* BrowserEvent+CoreDataClass.swift in Sources */,
 				F0A00018268F000100000001 /* AppDetailViewController.swift in Sources */,
 				F0A00016268F000100000001 /* DashboardViewController.swift in Sources */,
 				F0A00014268F000100000001 /* MainTabBarController.swift in Sources */,
-				F0A00007268F000100000001 /* NetworkEvent+CoreDataClass.swift in Sources */,
-				F0A00010268F000100000001 /* NetworkEvent+CoreDataProperties.swift in Sources */,
-				F0A00002268F000100000001 /* NetworkEventManager.swift in Sources */,
-				FAA2F5C91FEF704900FA15C4 /* SHA256.swift in Sources */,
-				FAA2F5BD1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld in Sources */,
-				FAA2F5C11FEF1CA100FA15C4 /* RuleManager.swift in Sources */,
 				FAA2F5BA1FEF0FB700FA15C4 /* UIViewController+Util.swift in Sources */,
 				FAA2F5471FEEF25B00FA15C4 /* FilterSettingsController.swift in Sources */,
 				FA68F2661FF84C520042840D /* Mutex.swift in Sources */,
 				F410000E1A00000000000001 /* ProxyManager.swift in Sources */,
-				FAA2F5C51FEF6FD100FA15C4 /* Constants.swift in Sources */,
-				FABDA3CB1FFEE8B90077C681 /* StaticRules.swift in Sources */,
-				
 				FAA2F5D61FEF738C00FA15C4 /* Notification.swift in Sources */,
-				FAA2F5D21FEF71B000FA15C4 /* UniqueID.swift in Sources */,
-				FAA2F5B61FEF071100FA15C4 /* Rule.swift in Sources */,
-				FA68F26F1FF85A510042840D /* Flow.swift in Sources */,
 				FA98E6BD20C637C20010643C /* AboutController.swift in Sources */,
 				FABDA3C91FFEE1940077C681 /* OnboardingController.swift in Sources */,
 				FAA2F5451FEEF25B00FA15C4 /* AppDelegate.swift in Sources */,
@@ -917,24 +1414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F300000129562DE700000022 /* UnifiedNetworkEvent.swift in Sources */,
-				F300000129562DE70000000D /* BrowserEventManager.swift in Sources */,
-				F300000129562DE700000009 /* BrowserFlowPayload.swift in Sources */,
-				F300000129562DE700000006 /* BrowserEvent+CoreDataProperties.swift in Sources */,
-				F300000129562DE700000003 /* BrowserEvent+CoreDataClass.swift in Sources */,
-				F0A00008268F000100000001 /* NetworkEvent+CoreDataClass.swift in Sources */,
-				F0A00011268F000100000001 /* NetworkEvent+CoreDataProperties.swift in Sources */,
-				F0A00003268F000100000001 /* NetworkEventManager.swift in Sources */,
-				FAA2F5C61FEF6FD100FA15C4 /* Constants.swift in Sources */,
 				FA68F2671FF84C520042840D /* Mutex.swift in Sources */,
 				FAA2F5671FEEF51200FA15C4 /* FilterDataProvider.swift in Sources */,
-				FA0A6B2D20C4A41C00222EF2 /* StaticRules.swift in Sources */,
-				FAA2F5CA1FEF704900FA15C4 /* SHA256.swift in Sources */,
-				FAA2F5BE1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld in Sources */,
-				FAA2F5D31FEF71B000FA15C4 /* UniqueID.swift in Sources */,
-				FA68F2701FF85A510042840D /* Flow.swift in Sources */,
-				FAA2F5B71FEF071100FA15C4 /* Rule.swift in Sources */,
-				FAA2F5C21FEF1CA100FA15C4 /* RuleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,24 +1423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F300000129562DE700000023 /* UnifiedNetworkEvent.swift in Sources */,
-				F300000129562DE70000000A /* BrowserFlowPayload.swift in Sources */,
-				F300000129562DE700000016 /* BrowserEventManager.swift in Sources */,
-				F300000129562DE700000015 /* BrowserEvent+CoreDataProperties.swift in Sources */,
-				F300000129562DE700000014 /* BrowserEvent+CoreDataClass.swift in Sources */,
-				F0A00009268F000100000001 /* NetworkEvent+CoreDataClass.swift in Sources */,
-				F0A00012268F000100000001 /* NetworkEvent+CoreDataProperties.swift in Sources */,
-				F0A00004268F000100000001 /* NetworkEventManager.swift in Sources */,
-				FAA2F5C71FEF6FD100FA15C4 /* Constants.swift in Sources */,
-				FA68F2711FF85A510042840D /* Flow.swift in Sources */,
 				FAA2F5791FEEF53000FA15C4 /* FilterControlProvider.swift in Sources */,
-				FAA2F5CB1FEF704900FA15C4 /* SHA256.swift in Sources */,
-				FAA2F5BF1FEF1C6E00FA15C4 /* XavierDataModel.xcdatamodeld in Sources */,
-				
-				FAA2F5D41FEF71B000FA15C4 /* UniqueID.swift in Sources */,
-				FA0A6B2B20C4A41A00222EF2 /* StaticRules.swift in Sources */,
-				FAA2F5B81FEF071100FA15C4 /* Rule.swift in Sources */,
-				FAA2F5C31FEF1CA100FA15C4 /* RuleManager.swift in Sources */,
 				FA68F2681FF84C520042840D /* Mutex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -967,6 +1431,60 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		228AEE41B2EB847DF1C69807 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = C1731DF29E57E9C41F205E7D /* PBXContainerItemProxy */;
+		};
+		278982D5B0F6FC59465F4848 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = D648D91AF05AFBA075D554CA /* PBXContainerItemProxy */;
+		};
+		2DF1E902B22956965105B590 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = FB6BD2BAA259ECAF4F9BB5BD /* PBXContainerItemProxy */;
+		};
+		82D1665279CBC33276D39644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = 2009CCF98CD2987BD10DD482 /* PBXContainerItemProxy */;
+		};
+		9EE65512E2CD1C1189480483 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = 24B2F195254E758F213D05FA /* PBXContainerItemProxy */;
+		};
+		C6A3E01377328129CDC3D8A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierMacProxyExtension;
+			target = BCE66F939FD95E63327DC60C /* XavierMacProxyExtension */;
+			targetProxy = C6BB3F58C026E132854B1774 /* PBXContainerItemProxy */;
+		};
+		C90556D980C9C63D6705881E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierMacFilterExtension;
+			target = F6B61588E55ACFD5284496ED /* XavierMacFilterExtension */;
+			targetProxy = A9F3750E3A2E63FFB18BB714 /* PBXContainerItemProxy */;
+		};
+		CEFF7D329D84014BC922773C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = E190CDB8D2C496E8A1C69BD0 /* PBXContainerItemProxy */;
+		};
+		EA41788DEFCB3D9E79EB3A35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XavierShared;
+			target = D299D8285E7E088032B2E12E /* XavierShared */;
+			targetProxy = 5B79243AD4DA1353550BD1F4 /* PBXContainerItemProxy */;
+		};
 		F41000181A00000000000001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F41000001A00000000000001 /* XavierProxy */;
@@ -982,7 +1500,6 @@
 			target = FAA2F5751FEEF53000FA15C4 /* XavierControl */;
 			targetProxy = FAA2F57C1FEEF53000FA15C4 /* PBXContainerItemProxy */;
 		};
-		
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1002,10 +1519,129 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0DDC55A24BED3BD7E2352483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = XavierMac/XavierMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XavierMac/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogdan.xaviermac;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		400A7DF9E3700C463DB2140E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = XavierMacFilterExtension/XavierMacFilterExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XavierMacFilterExtension/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogdan.xaviermac.filter;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6545A441B760FE37920BF5CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = XavierMacFilterExtension/XavierMacFilterExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XavierMacFilterExtension/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogdan.xaviermac.filter;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		82144DDC31B2B115F17AE412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = XavierMac/XavierMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XavierMac/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogdan.xaviermac;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E42DCA5FE6A3BF10B663E0D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(XAVIER_BUNDLE_ID).shared";
+				PRODUCT_MODULE_NAME = XavierShared;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F41000021A00000000000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C0A0000129562DE700000001 /* Shared.xcconfig */;
@@ -1020,11 +1656,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierProxy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierProxy;
 			};
 			name = Debug;
 		};
@@ -1042,11 +1678,84 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierProxy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierProxy;
+			};
+			name = Release;
+		};
+		F59DECFF0B53C64091CAE1ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(XAVIER_BUNDLE_ID).shared";
+				PRODUCT_MODULE_NAME = XavierShared;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F8D1E8E7135FDF81D40119C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = XavierMacProxyExtension/XavierMacProxyExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XavierMacProxyExtension/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogdan.xaviermac.proxy;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F98F1F71EBE6898C5059CD25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = XavierMacProxyExtension/XavierMacProxyExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XavierMacProxyExtension/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boogdan.xaviermac.proxy;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1083,6 +1792,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1141,6 +1851,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = SH6P3FJM2P;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1176,10 +1887,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = "";
 			};
 			name = Debug;
 		};
@@ -1199,10 +1910,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = "";
 			};
 			name = Release;
 		};
@@ -1220,11 +1931,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierData;
 			};
 			name = Debug;
 		};
@@ -1242,11 +1953,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierData;
 			};
 			name = Release;
 		};
@@ -1264,11 +1975,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierControl;
 			};
 			name = Debug;
 		};
@@ -1286,17 +1997,53 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XAVIER_TARGET_BUNDLE_SUFFIX = .XavierControl;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		35F23D56D033185BF8C9C4ED /* Build configuration list for PBXNativeTarget "XavierMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DDC55A24BED3BD7E2352483 /* Release */,
+				82144DDC31B2B115F17AE412 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DD693CD332E4625277BE025 /* Build configuration list for PBXNativeTarget "XavierMacProxyExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F98F1F71EBE6898C5059CD25 /* Release */,
+				F8D1E8E7135FDF81D40119C2 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADDECE3AB2B2FB62773FC835 /* Build configuration list for PBXNativeTarget "XavierShared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E42DCA5FE6A3BF10B663E0D8 /* Release */,
+				F59DECFF0B53C64091CAE1ED /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC45C3AA0C2D0DB6711D3775 /* Build configuration list for PBXNativeTarget "XavierMacFilterExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6545A441B760FE37920BF5CF /* Release */,
+				400A7DF9E3700C463DB2140E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F41000011A00000000000001 /* Build configuration list for PBXNativeTarget "XavierProxy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1352,12 +2099,7 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F410001C1A00000000000001 /* X509 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F410001A1A00000000000001 /* XCLocalSwiftPackageReference "Vendor/swift-certificates" */;
-			productName = X509;
-		};
-		F410001E1A00000000000001 /* X509 */ = {
+		E90DA8426214EEB9B6311763 /* X509 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F410001A1A00000000000001 /* XCLocalSwiftPackageReference "Vendor/swift-certificates" */;
 			productName = X509;

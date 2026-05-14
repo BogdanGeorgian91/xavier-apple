@@ -1,5 +1,6 @@
 import Foundation
 import NetworkExtension
+import XavierShared
 
 final class ProxyManager {
     static let shared = ProxyManager()

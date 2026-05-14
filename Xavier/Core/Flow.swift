@@ -9,7 +9,7 @@ import NetworkExtension
 import Darwin
 
 extension String {
-    func cleanAppIdentifier() -> String {
+    public func cleanAppIdentifier() -> String {
         var cleaned = self.trimmingCharacters(in: .whitespacesAndNewlines)
         while cleaned.hasPrefix(".") {
             cleaned.removeFirst()
@@ -23,7 +23,7 @@ extension String {
 }
 
 extension NEFilterFlow {
-    func flowIdentifier() -> String? {
+    public func flowIdentifier() -> String? {
         if #available(iOS 13.1, *) {
             return identifier.uuidString
         }
@@ -31,7 +31,7 @@ extension NEFilterFlow {
         return nil
     }
 
-    func getHost() -> String? {
+    public func getHost() -> String? {
         if let host = self.url?.host {
             return host
         }
@@ -60,7 +60,7 @@ extension NEFilterFlow {
         }
     }
 
-    func getEndpointIPAndPort() -> (ip: String?, port: Int32?) {
+    public func getEndpointIPAndPort() -> (ip: String?, port: Int32?) {
         guard let socketFlow = self as? NEFilterSocketFlow,
               let endpoint = socketFlow.remoteEndpoint as? NWHostEndpoint else {
             return (nil, nil)
@@ -69,7 +69,7 @@ extension NEFilterFlow {
         return (endpoint.hostname, Int32(endpoint.port))
     }
 
-    func getLocalEndpointIPAndPort() -> (ip: String?, port: Int32?) {
+    public func getLocalEndpointIPAndPort() -> (ip: String?, port: Int32?) {
         guard let socketFlow = self as? NEFilterSocketFlow,
               let endpoint = socketFlow.localEndpoint as? NWHostEndpoint else {
             return (nil, nil)
@@ -78,7 +78,7 @@ extension NEFilterFlow {
         return (endpoint.hostname, Int32(endpoint.port))
     }
 
-    func getTransportProtocol() -> String? {
+    public func getTransportProtocol() -> String? {
         guard let socketFlow = self as? NEFilterSocketFlow else {
             if self is NEFilterBrowserFlow {
                 return "browser"
@@ -99,7 +99,7 @@ extension NEFilterFlow {
         }
     }
 
-    func getTrafficDirection() -> String? {
+    public func getTrafficDirection() -> String? {
         if #available(iOS 13.0, *) {
             switch direction {
             case .inbound:
@@ -116,9 +116,9 @@ extension NEFilterFlow {
         return nil
     }
 
-    func networkEventPayload(timestamp: Date = Date(),
-                             bytesInbound: Int64 = 0,
-                             bytesOutbound: Int64 = 0) -> NetworkEventPayload? {
+    public func networkEventPayload(timestamp: Date = Date(),
+                                    bytesInbound: Int64 = 0,
+                                    bytesOutbound: Int64 = 0) -> NetworkEventPayload? {
         guard let rawAppId = sourceAppIdentifier else {
             return nil
         }
@@ -142,7 +142,7 @@ extension NEFilterFlow {
 
     }
 
-    func browserFlowPayload() -> BrowserFlowPayload? {
+    public func browserFlowPayload() -> BrowserFlowPayload? {
         guard let rawAppId = sourceAppIdentifier else {
             return nil
         }

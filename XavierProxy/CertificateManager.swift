@@ -2,13 +2,14 @@ import Foundation
 import Security
 import X509
 
-final class CertificateManager {
-    static let shared = CertificateManager()
+public final class CertificateManager {
+    public static let shared = CertificateManager()
 
-    private let rootCAKeyTag = "\(Constants.appBundleIdentifier).rootCA.privateKey"
-    private let rootCACertTag = "\(Constants.appBundleIdentifier).rootCA.certificate"
-    private let rootCAStoreService = "\(Constants.appBundleIdentifier).certificateStore"
-    private let keychainAccessGroup = Constants.sharedKeychainAccessGroup
+    private let bundleIdentifier: String
+    private let keychainAccessGroup: String
+    private var rootCAKeyTag: String { "\(bundleIdentifier).rootCA.privateKey" }
+    private var rootCACertTag: String { "\(bundleIdentifier).rootCA.certificate" }
+    private var rootCAStoreService: String { "\(bundleIdentifier).certificateStore" }
 
     private var leafCache = [String: (identity: SecIdentity, certificate: SecCertificate, expires: Date)]()
     private let leafCacheMaxSize = 50
@@ -16,18 +17,32 @@ final class CertificateManager {
     private var pinnedDomains = Set<String>()
     private let knownPinnedDomains = Set<String>()
 
-    private init() {}
+    private convenience init() {
+        self.init(constants: Constants.platformConstants)
+    }
 
-    var isRootCACreated: Bool {
+    private init(constants: PlatformConstants) {
+        self.bundleIdentifier = constants.bundleIdentifier
+        self.keychainAccessGroup = constants.keychainAccessGroup
+        loadPinnedDomains()
+    }
+
+    private func loadPinnedDomains() {
+        if let persisted = UserDefaults.group?.stringArray(forKey: Constants.ProxyKeys.pinnedDomainsKey) {
+            pinnedDomains = Set(persisted)
+        }
+    }
+
+    public var isRootCACreated: Bool {
         return loadRootCertificate() != nil && loadRootPrivateKey() != nil
     }
 
-    var rootCAPublicKeyData: Data? {
+    public var rootCAPublicKeyData: Data? {
         guard let certificate = loadRootCertificate() else { return nil }
         return SecCertificateCopyData(certificate) as Data
     }
 
-    func createRootCA() throws {
+    public func createRootCA() throws {
         if isRootCACreated {
             return
         }
@@ -75,7 +90,7 @@ final class CertificateManager {
         try storeCertificateData(certificateData, account: rootCACertTag)
     }
 
-    func generateLeafCertificate(for hostname: String) throws -> (SecIdentity, SecCertificate) {
+    public func generateLeafCertificate(for hostname: String) throws -> (SecIdentity, SecCertificate) {
         if let cached = leafCache[hostname], cached.expires > Date() {
             return (cached.identity, cached.certificate)
         }
@@ -85,7 +100,7 @@ final class CertificateManager {
             throw CertificateManagerError.rootCANotAvailable
         }
 
-        let leafTag = "\(Constants.appBundleIdentifier).leaf.\(hostname)"
+        let leafTag = "\(bundleIdentifier).leaf.\(hostname)"
         try deleteLeafMaterial(hostname: hostname)
 
         var error: Unmanaged<CFError>?
@@ -139,14 +154,14 @@ final class CertificateManager {
         return (identity, secCertificate)
     }
 
-    func exportRootCA() throws -> Data {
+    public func exportRootCA() throws -> Data {
         guard let data = rootCAPublicKeyData else {
             throw CertificateManagerError.rootCANotAvailable
         }
         return data
     }
 
-    func deleteRootCA() throws {
+    public func deleteRootCA() throws {
         leafCache.removeAll()
 
         SecItemDelete([
@@ -163,20 +178,21 @@ final class CertificateManager {
         ] as CFDictionary)
     }
 
-    func isPinnedDomain(_ hostname: String) -> Bool {
+    public func isPinnedDomain(_ hostname: String) -> Bool {
         return knownPinnedDomains.contains(hostname) || pinnedDomains.contains(hostname)
     }
 
-    func markAsPinned(_ hostname: String) {
+    public func markAsPinned(_ hostname: String) {
         pinnedDomains.insert(hostname)
         var persisted = UserDefaults.group?.stringArray(forKey: Constants.ProxyKeys.pinnedDomainsKey) ?? []
         if !persisted.contains(hostname) {
             persisted.append(hostname)
             UserDefaults.group?.set(persisted, forKey: Constants.ProxyKeys.pinnedDomainsKey)
         }
+        loadPinnedDomains()
     }
 
-    func loadRootCertificate() -> SecCertificate? {
+    public func loadRootCertificate() -> SecCertificate? {
         guard let data = loadCertificateData(account: rootCACertTag) else {
             return nil
         }
@@ -228,7 +244,7 @@ final class CertificateManager {
     }
 
     private func storeLeafCertificate(_ certificate: SecCertificate, hostname: String) throws {
-        let label = "\(Constants.appBundleIdentifier).leafcert.\(hostname)"
+        let label = "\(bundleIdentifier).leafcert.\(hostname)"
         let deleteQuery: [String: Any] = [
             kSecClass as String: kSecClassCertificate,
             kSecAttrLabel as String: label
@@ -246,8 +262,8 @@ final class CertificateManager {
     }
 
     private func deleteLeafMaterial(hostname: String) throws {
-        let keyTag = "\(Constants.appBundleIdentifier).leaf.\(hostname)"
-        let certLabel = "\(Constants.appBundleIdentifier).leafcert.\(hostname)"
+        let keyTag = "\(bundleIdentifier).leaf.\(hostname)"
+        let certLabel = "\(bundleIdentifier).leafcert.\(hostname)"
 
         SecItemDelete([
             kSecClass as String: kSecClassKey,
@@ -278,7 +294,7 @@ final class CertificateManager {
     }
 }
 
-enum CertificateManagerError: Error {
+public enum CertificateManagerError: Error {
     case keyGenerationFailed
     case rootCANotAvailable
     case identityCreationFailed(OSStatus)

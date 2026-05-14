@@ -1,4 +1,5 @@
 import UIKit
+import XavierShared
 
 final class AppHostActivityViewController: UITableViewController {
     private let appIdentifier: AppName
